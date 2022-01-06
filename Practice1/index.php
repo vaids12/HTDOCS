@@ -95,8 +95,7 @@ echo $b.'<br>';
 echo $c.'<br>';
 
 if(($a+$b)<$c || ($a+$c)<$b ||($b+$c)<$a) {
-    echo 'Negalima sudaryti trikampį';
-
+    echo 'Negalima sudaryti trikampį';  
 }else{
     echo 'Galima sudaryti trikampį';
 }
