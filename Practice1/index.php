@@ -164,7 +164,8 @@ $number = rand(1,6);
 echo " <h$number>$number</h$number>";
 
 ?>
-
+<br>
+<br>
 <!-- 7. Naudokite funkcija rand(). Atspausdinkite 3 skaičius nuo -10 iki 10. Skaičiai mažesni už
 0 turi būti žali, 0 - raudonas, didesni už 0 mėlyni -->
 
@@ -173,10 +174,42 @@ $number1 = rand(-10,10);
 $number2 = rand(-10,10);
 $number3 = rand(-10,10);
 
+echo 'Number1 is '.$number1.'<br>';
+echo 'Number2 is '.$number2.'<br>';
+echo  'Number3 is '.$number3.'<br>';
+
+if ($number1<0){
+    $number1 = 'green';
+}else if ($number1>0){
+    $number1 = 'blue';
+}else{
+    $number1 = 'red';
+}
+
+if ($number2<0){
+    $number2 = 'green';
+}else if ($number2>0){
+    $number2 = 'blue';
+}else{
+    $number2 = 'red';
+}
+
+if ($number3<0){
+    $number3 = 'green';
+}else if ($number3>0){
+    $number3 = 'blue';
+}else{
+    $number3 = 'red';
+}
+
+echo 'Number1 is '.$number1.', Number2 is '.$number2.', Number3 is '.$number3;
 
 
 
 ?>
+
+<br>
+<br>
 
  <!-- 8 Įmonė parduoda žvakes po 1 EUR. Perkant daugiau kaip už 1000 EUR taikoma 3 %
 nuolaida, daugiau kaip už 2000 EUR - 4 % nuolaida. Parašykite programą, kuri skaičiuos
@@ -214,7 +247,7 @@ echo $numb2.'<br>';
 echo $numb3.'<br>';
 
 $aver1=( ($numb1+$numb2+$numb3)/3);
-$aver1Int = (int)$aver1;
+$aver1Int = round($aver1);
 
 
 if ($numb1>10 && $numb1<=90 && $numb2>10 && $numb2<=90 && $numb3>10 && $numb3<=90 ){
@@ -229,10 +262,14 @@ if ($numb1>10 && $numb1<=90 && $numb2>10 && $numb2<=90 && $numb3>10 && $numb3<=9
     $aver2 =$numb1;
 }else if($numb2>10 && $numb2<=90){
     $aver2 =$numb2;
-}else {
+}else if($numb3>10 && $numb3<=90){
     $aver2 =$numb3;
+}else{
+    $aver2 =0;
 }
-$aver2Int = (int)$aver2;
+
+
+$aver2Int =round( $aver2);
 echo "Pirmas vidurkis $aver1Int, antras vidurkis $aver2Int";
 
 
