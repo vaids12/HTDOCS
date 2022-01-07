@@ -130,6 +130,7 @@ $num1 = rand(0,2);
     }else{
         $du++;
     }
+
     if ($num2 ===0){
         $nulis++;
     }else if ($num2 ===1){
@@ -137,6 +138,7 @@ $num1 = rand(0,2);
     }else{
         $du++;
     }
+
     if ($num3 ===0){
         $nulis++;
     }else if ($num3 === 1){
@@ -144,6 +146,7 @@ $num1 = rand(0,2);
     }else{
         $du++;
     }
+
     if ($num4 ===0){
         $nulis++;
     }else if ($num4 === 1){
@@ -287,7 +290,7 @@ $h= rand(0,23);
 $min = rand(0,59);
 $sek = rand(0,59);
 $sekRand= rand(0,300);
-echo 'Pridedam sekundziu '.$sekRand.'<br>';
+echo 'Pridedam '.$sekRand.' sekundziu <br>';
 $oldTime= ($sek+($min*60)+($h*3600));
 $sumSek=($oldTime+$sekRand);
 
@@ -315,7 +318,10 @@ if($sumSek>86400){
 
 
 echo "Senas  laikas $h : $min : $sek".'<br>';
-echo "Naujas laikas $newHInt : $newMinInt : $newSek";
+echo "Naujas laikas $newHInt : $newMinInt : $newSek".'<br>';
+
+
+
 
 ?>
 
