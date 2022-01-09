@@ -39,10 +39,10 @@ mažesnės. Atspausdinkite rezultatą jį suapvalinę iki 2 skaičių po kableli
     Echo round(($sum = $num1/ $num2),2);
 //}else if($num2 >$num1 && $num1 !=0){
     Echo round(($sum = $num2/ $num1),2);
-//}else if($num1 ==$num2){
-   echo  'skaičiai vienodi';
+//}else if($num1==0 || $num2==0){
+   echo  'Kazkuris is skaiciu lygus 0';
 //}else {
-    echo   ' skaicius  0';
+    echo   'skaičiai vienodi';
 //}
 
 
@@ -180,32 +180,33 @@ $number3 = rand(-10,10);
 echo 'Number1 is '.$number1.'<br>';
 echo 'Number2 is '.$number2.'<br>';
 echo  'Number3 is '.$number3.'<br>';
+echo '<br>';
 
 if ($number1<0){
-    $number1 = 'green';
+    echo "<span style='color: green'> $number1</span>" ;
 }else if ($number1>0){
-    $number1 = 'blue';
+    echo "<span style='color: blue'> $number1</span>" ;
 }else{
-    $number1 = 'red';
+    echo "<span style='color: red'> $number1</span>" ;
 }
 
 if ($number2<0){
-    $number2 = 'green';
+    echo "<span style='color: green'> $number2</span>" ;
 }else if ($number2>0){
-    $number2 = 'blue';
+    echo "<span style='color: blue'> $number2</span>" ;
 }else{
-    $number2 = 'red';
+    echo "<span style='color: red'> $number2</span>" ;
 }
 
 if ($number3<0){
-    $number3 = 'green';
+    echo "<span style='color: green'> $number3</span>" ;
 }else if ($number3>0){
-    $number3 = 'blue';
+    echo "<span style='color: blue'> $number3</span>" ;
 }else{
-    $number3 = 'red';
+    echo "<span style='color: red'> $number3</span>" ;
 }
 
-echo 'Number1 is '.$number1.', Number2 is '.$number2.', Number3 is '.$number3;
+
 
 
 
@@ -224,9 +225,9 @@ echo $zvakes.'<br>';
 $sum;
 
 
-if ($zvakes < 1000){
+if ($zvakes <= 1000){
     $sum= $zvakes;
-}else if( $zvakes <2000){
+}else if( $zvakes <=2000){
     $sum = ($zvakes-($zvakes *0.03));
 }else{
     $sum = ($zvakes-($zvakes *0.04));;
@@ -251,29 +252,34 @@ echo $numb3.'<br>';
 
 $aver1=( ($numb1+$numb2+$numb3)/3);
 $aver1Int = round($aver1);
+$sumaSkaiciu = 0;
+$skaiciuKiekis = 0;
 
 
-if ($numb1>10 && $numb1<=90 && $numb2>10 && $numb2<=90 && $numb3>10 && $numb3<=90 ){
-    $aver2 =( ($numb1+$numb2+$numb3)/3);
-}else if($numb1>10 && $numb1<=90 && $numb2>10 && $numb2<=90 ){
-    $aver2 =( ($numb1+$numb2)/2);
-}else if($numb1>10 && $numb1<=90 && $numb3>10 && $numb3<=90 ){
-    $aver2 =( ($numb1+$numb3)/2);
-}else if($numb2>10 && $numb2<=90 && $numb3>10 && $numb3<=90 ){
-    $aver2 =( ($numb2+$numb3)/2);
-}else if($numb1>10 && $numb1<=90){
-    $aver2 =$numb1;
-}else if($numb2>10 && $numb2<=90){
-    $aver2 =$numb2;
-}else if($numb3>10 && $numb3<=90){
-    $aver2 =$numb3;
+
+if ($numb1>=10 && $numb1<=90 ){
+    $sumaSkaiciu  +=$numb1;
+    $skaiciuKiekis++;
+} 
+if($numb2>=10 && $numb2<=90 ){
+    $sumaSkaiciu  +=$numb2;
+    $skaiciuKiekis++;
+}
+ if( $numb3>=10 && $numb3<=90 ){
+    $sumaSkaiciu  +=$numb3;
+    $skaiciuKiekis++;
+}
+
+if ( $skaiciuKiekis!==0){
+    $aritVid=round($sumaSkaiciu/$skaiciuKiekis);
+    
 }else{
-    $aver2 =0;
+    echo 'Visi skaiciai netenkina salygos';
 }
 
 
-$aver2Int =round( $aver2);
-echo "Pirmas vidurkis $aver1Int, antras vidurkis $aver2Int";
+
+echo "Pirmas vidurkis $aver1Int, antras vidurkis  $aritVid";
 
 
 ?>
@@ -319,8 +325,36 @@ if($sumSek>86400){
 
 echo "Senas  laikas $h : $min : $sek".'<br>';
 echo "Naujas laikas $newHInt : $newMinInt : $newSek".'<br>';
+echo '<br>';
+echo '<br>';
+$valandos = rand(0,23);
+$minutes = rand(0,59);
+$sekundes = rand(0,59);
 
+echo "$valandos:$minutes:$sekundes<br>";
 
+$papildSekundes = rand(0,300);
+
+echo "Papildomos sekundės: $papildSekundes<br>";
+
+$sekundes += $papildSekundes % 60;
+$minutes += floor($papildSekundes / 60); 
+
+if ($sekundes > 59) {
+    $sekundes -= 60;
+    $minutes++;
+}
+
+if ($minutes > 59) {
+    $minutes -= 60;
+    $valandos++;
+}
+
+if ($valandos > 23) {
+    $valandos -= 24;
+}
+
+echo "$valandos:$minutes:$sekundes<br>";
 
 
 ?>
