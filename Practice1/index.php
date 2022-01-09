@@ -321,7 +321,10 @@ if($sumSek>86400){
     $newSek=0;
 }
 
-
+// 10. Padarykite skaitmeninį laikrodį, rodantį valandas, minutes ir sekundes. Valandom,
+// minutėm ir sekundėm sugeneruoti panaudokite funkciją rand(). Sugeneruokite skaičių
+// nuo 0 iki 300. Tai papildomos sekundės. Skaičių pridėkite prie jau sugeneruoto laiko.
+// Atspausdinkite laikrodį prieš ir po sekundžių pridėjimo ir pridedamų sekundžių skaičių 
 
 echo "Senas  laikas $h : $min : $sek".'<br>';
 echo "Naujas laikas $newHInt : $newMinInt : $newSek".'<br>';
