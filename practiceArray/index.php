@@ -14,11 +14,11 @@ for ($i=1; $i<=10; $i++){
 
 }
 
-// for ($z=0; $z<10; $z++){
-//     for ($x=1; $x<5; $x++){
-//         array_push($array[$z][$x1=rand(5,25)]);
-//     }
-// }
+for ($z=0; $z<10; $z++){
+    for ($x=1; $x<=5; $x++){
+        array_push($array,$z,$x);
+    }
+}
 
 
 
