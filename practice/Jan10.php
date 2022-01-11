@@ -73,9 +73,12 @@ $students =[
     <h3>Task 1 Color list</h3>
     <ul>
         <?php
-            foreach($colors as $color){
-                 echo "<li>$color</li>";
-            }
+           
+       
+           foreach($colors as $color){
+           echo "<li>$color</li>";
+          } 
+           
         ?>
     </ul>
     <h3>Task 2 Capitals of Countries</h3>
