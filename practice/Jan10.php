@@ -70,7 +70,7 @@ $students =[
     <link rel="stylesheet" href="./dist/style.css">
 </head>
 <body>
-    <h3>Task 1 Color list</h3>
+    <!-- <h3>Task 1 Color list</h3>
     <ul>
         <?php
            
@@ -89,7 +89,7 @@ $students =[
    ?>
     <h3>Task 3 Average Temperature</h3>
 
-    <?php
+     <?php
     echo"<p> Average temperature is $avgTemp</p>";
    echo "<p>Five lowest temperatures are: ";
    for($i=0; $i<5; $i++){
@@ -112,7 +112,7 @@ $students =[
     };
 
 
-    ?>
+    ?> 
     <?php
    
 
@@ -164,7 +164,8 @@ $students =[
             }
 
          ?>
-    </table>
+    </table> 
+
 
 </body>
 </html>

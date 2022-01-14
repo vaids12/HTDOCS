@@ -6,23 +6,55 @@
 // reikšmėmis nuo 5 iki 25.
 
 
-$array =[];
+// $array =[];
 
-for ($i=1; $i<=10; $i++){
-    array_push($array,$i);
-    echo $i.'<br>';
+// for ($i=1; $i<=10; $i++){
+//     array_push($array,$i);
+//     echo $i.'<br>';
 
+// }
+
+// for ($z=0; $z<10; $z++){
+//     for ($x=1; $x<=5; $x++){
+//         array_push($array,$z,$x);
+//     }
+// }
+
+
+
+// var_dump($array);
+
+
+//        echo $lsLength;
+// array_push( $parts_sums, array_sum($ls));
+// unset ( $ls[0]);
+// array_push( $parts_sums, array_sum($ls));
+// unset ( $ls[1]);
+// array_push( $parts_sums, array_sum($ls));
+// unset ( $ls[2]);
+// array_push( $parts_sums, array_sum($ls));
+// unset ( $ls[3]);
+// array_push( $parts_sums, array_sum($ls));
+// unset ( $ls[4]);
+// array_push( $parts_sums, array_sum($ls));
+
+$ls=[];
+ $parts_sums =[] ;
+
+$z =  count($ls)+1;
+      
+for ($i= 0; $i<$z ; $i++){
+     array_push( $parts_sums, array_sum($ls));
+    unset ( $ls[$i]);          
 }
 
-for ($z=0; $z<10; $z++){
-    for ($x=1; $x<=5; $x++){
-        array_push($array,$z,$x);
-    }
-}
+var_dump ($parts_sums);
+
+     
+
+ 
 
 
-
-var_dump($array);
 
 ?>
 
