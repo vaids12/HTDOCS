@@ -24,7 +24,7 @@ if($_POST){
         <li>Ir GET ir POST turi kintamuosius  $_GET ir $_POST </li>
         <li>GET masyvas perduodamas i  URL </li>
         <li>POST masyvas perduodamas per HTTP POST metodu</li>
-        <li>GET turi ribota kieki informacijos, ka galima persiusti </li>
+        <li>GET turi ribota kieki informacijos( 2000 ženklų), ka galima persiusti </li>
     </ul>
 
     <p style ='color: red'>GET metodu NIEKADA nesiunciame slaptazodziu</p>

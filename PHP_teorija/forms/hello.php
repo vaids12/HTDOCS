@@ -44,6 +44,8 @@ if($_SERVER['REQUEST_METHOD']== "POST"){
   
 }
 
+//keliame arba ne i duomenu baze
+
 function testInput($data){
     $data = trim($data);
     $data = stripslashes($data);
@@ -73,35 +75,48 @@ function testInput($data){
 
     <label for="userName">Username*</label>
 <br>
-<input type="text" name="userName">
+<input type="text" name="userName" value ="<?php echo $userName?>">
 <span style = "color:red ">  <?php echo $usrNameErr; ?> </span>
 <br>
 <label for= "email" >Email*</label>
 <br>
-<input type="text" name= "email">
+<input type="text" name= "email"value ="<?php echo $email?>" >
 <span style = "color:red ">  <?php echo $emailErr; ?> </span>
 <br>
 <label for="web">Website*</label>
 <br>
-<input type="text" name= "web">
+<input type="text" name= "web" value ="<?php echo $web?>">
 <span style = "color:red ">  <?php echo $webErr; ?> </span>
 <br>
 <label for="note">Note</label>
 <br>
-<textarea name="note" id="" cols="30" rows="10"></textarea>
+<textarea name="note" id="" cols="30" rows="10"value ="<?php echo $note?>"></textarea >
+<span style = "color:red ">  <?php echo $noteErr; ?> </span>
 <br>
 <span>Gender*:</span>
-<span style = "color:red ">  <?php echo $genderErr; ?> </span>
+
 <br>
 <label for="gender">Male</label>
-<input type="radio" name= "gender" value="male">
+<input type="radio" name= "gender" value="male" <?php 
+if(isset($gender) && $gender == "male"){
+    echo "checked";
+}
+?>>
 <br>
 <label for="gender">Female</label>
-<input type="radio" name="gender" value ="female">
+<input type="radio" name="gender" value ="female"<?php 
+if(isset($gender) && $gender == "female"){
+    echo "checked";
+}
+?>>
 <br>
 <label for="gender">Undefined</label>
-<input type="radio" name= "gender" value= "undefined">
-
+<input type="radio" name= "gender" value= "undefined"<?php 
+if(isset($gender) && $gender == "undefined"){
+    echo "checked";
+}
+?>>
+<span style = "color:red ">  <?php echo $genderErr; ?> </span>
 <br>
 <input type="submit">
 <span>* Field are required</span>
@@ -109,6 +124,23 @@ function testInput($data){
 
 
 </form>
+
+<table>
+   <tr>
+       <th>Username</th>
+       <th>Email</th>
+       <th>Website</th>
+       <th>Gender</th>
+       <th>Note</th>
+   </tr>
+   <tr>
+       <td>  $userName;</td>
+       <td> $email;</td>
+       <td> $web;</td>
+       <td>  $gender;</td>
+       <td> echo $note;</td>
+   </tr>
+</table>
 
 
 </body>
