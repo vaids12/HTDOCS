@@ -3,6 +3,7 @@ $usrNameErr= $emailErr = $webErr= $noteErr= $genderErr="";
 
 $userName = $email = $web = $note = $gender ="";
 
+$formData = [];
 
 
 if($_SERVER['REQUEST_METHOD']== "POST"){
@@ -11,24 +12,33 @@ if($_SERVER['REQUEST_METHOD']== "POST"){
         $usrNameErr= "Username is required";
     }else{
          $userName = testInput($_POST['userName']);
+
          if(!preg_match("/^[a-zA-Z-' ]*$/", $userName)){
              $usrNameErr="Only letters and spaces allowed";
+         }else{
+             $formData['userName']= $userName;
          }
     }
     if(empty($_POST['email'])){
         $emailErr= "Email is required";
     }else{
         $email = testInput($_POST['email']);
+
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
             $emailErr = "Email format is not valid";
+        }else{
+            $formData['email'] = $email;
         }
     }   
     if(empty($_POST['web'])){
         $webErr= "Web is required";
     }else{
         $web= testInput($_POST['web']);
+
         if(!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%?=~_|]/i", $web)){
             $webErr = " URL is invalid";
+        }else{
+            $formData['web'] = $web;
         }
     }    
     if(empty($_POST['note'])){
@@ -36,11 +46,13 @@ if($_SERVER['REQUEST_METHOD']== "POST"){
     }else{
         $note= testInput($_POST['note']);
     }
+    $formData['note'] = $note;
     if(empty($_POST['gender'])){
         $genderErr= "Gender is required";
     }else{
          $gender= testInput($_POST['gender']);
-    }   
+         $formData['gender'] = $gender;
+         }   
   
 }
 
@@ -90,7 +102,7 @@ function testInput($data){
 <br>
 <label for="note">Note</label>
 <br>
-<textarea name="note" id="" cols="30" rows="10"value ="<?php echo $note?>"></textarea >
+<textarea name="note" id="" cols="30" rows="10" ><?php echo $note;?></textarea >
 <span style = "color:red ">  <?php echo $noteErr; ?> </span>
 <br>
 <span>Gender*:</span>
@@ -134,11 +146,13 @@ if(isset($gender) && $gender == "undefined"){
        <th>Note</th>
    </tr>
    <tr>
-       <td>  $userName;</td>
-       <td> $email;</td>
-       <td> $web;</td>
-       <td>  $gender;</td>
-       <td> echo $note;</td>
+       <?php
+     if( empty($usrNameErr) && empty($emailErr) && empty( $webErr) && empty($noteErr) && empty( $genderErr) && $_POST){
+         echo "<td>".$formData['userName']."</td><td>".$formData['email']."</td><td>".$formData['web']."</td><td>".$formData['gender']."</td><td>".$formData['note']."</td>";
+     }
+
+
+     ?>
    </tr>
 </table>
 
