@@ -8,7 +8,7 @@ if($_POST){
     $password=$_POST['password'];
     $confirmPassword= $_POST['confirmPassword'];
 }else{
-     header("Location: index.php");
+     header("Location: ../index.php");
     exit;
 }
 
@@ -18,10 +18,10 @@ if($password==$confirmPassword){
     $password = password_hash($password, PASSWORD_DEFAULT);
   // echo $password;
 }else{
-    header("Location: ../sample_system /?username=".$username."&email=".$email."&error=passwords+do+not+match");
+    header("Location: ../../sample_system /?username=".$username."&email=".$email."&error=passwords+do+not+match");
     exit;
 }
 
-header("location: ../sample_system/welcome.php?username=".$username);
+header("location: ../../sample_system/views/welcome.php?username=".$username);
 
 ?>
