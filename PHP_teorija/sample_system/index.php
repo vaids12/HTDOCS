@@ -25,12 +25,10 @@ if($_GET){
             <label for="email">Email</label>
         </div>
         <div class="form-floating">
-            <input type="password" name="password" class="form-control"requeired >
+            <input type="password" name="password" class="form-control" requeired >
             <label for="password">Password</label>
         </div>
         <div class="form-floating">
-        
-
             <input type="password" name="confirmPassword" class="form-control" requeired>
             <span class="badge bg-danger"><?php echo $passError ?></span>
             <label for="confirmPassword">Confirm Password</label>
