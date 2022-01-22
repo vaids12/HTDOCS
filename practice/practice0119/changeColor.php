@@ -1,11 +1,11 @@
 <?php
-  if(isset($_GET['button1']) && $_GET['button1'] == 1){
-   $color = "green";
-    exit; 
+   
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // $color = "yellow";
+        header("location:../practice0119/changeColor.php ");
     }
-    if(isset($_POST['button2']) && $_POST['button2'] == 2){
-        $color = "yellow";
-         exit; 
+    if ($_SERVER['REQUEST_METHOD'] === 'GET'){
+        $color = "green";
     }
 
 ?>
@@ -22,13 +22,14 @@
     <title>Document</title>
 </head>
 
-<body style= "background-color:<?php echo $color ?>">
+<body style= "background-color:<?php echo $color ;?>">
 
-<form action="/?button1=1" method = "GET">
-    <input type="button" name ="button1" value = "button 1">
+<form action="http://localhost/practice/practice0119/changeColor.php" method = "GET">
+    <input type="submit"  value = "GET">
 </form>
-<form action="/?button2=2" method = "POST">
-    <input type="button" name ="button2" value = "button 2">
+<br>
+<form action="http://localhost/practice/practice0119/changeColor.php" method = "POST">
+    <input type="submit"  value = "POST">
 </form>
   
 </body>
