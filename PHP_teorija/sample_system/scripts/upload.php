@@ -44,7 +44,7 @@ if(isset($_FILES['pictureToUpload'])){
     if($uploadValid == 0){
         echo "File is not uploaded";
     }else{
-        if(move_uploaded_file($_FILES['pictureToUpload']['tmp_name'],$targerFile)){// $targetFile failas yra o $tempFile failo nebera.
+        if(move_uploaded_file($_FILES['pictureToUpload']['tmp_name'],$targetFile)){// $targetFile failas yra o $tempFile failo nebera.
             echo "File was uploaded";
         }else{
             echo "Error occured , please try again";
