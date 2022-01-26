@@ -49,14 +49,14 @@ if(isset($_POST['submit']) && ($_POST['number1'] !==0 || $_POST['number2'] !==0 
                 <div class= "card-body">
                     
                     <form method="POST" enctype="multipart/form-data" >  
-                       Įveskite atstumą metrais: 
+                       Atstumas metrais: 
                         <input type="number" name="number1"  value ="<?php echo $metr;?>"><br><br>  
  
-                        Įveskite atstumą kilometrais:
+                        Atstumas kilometrais:
                         <input type="number" name="number2"  value ="<?php echo $kilometr;?>"><br><br>  
-                        Įveskite atstumą myliomis: 
+                        Atstumas myliomis: 
                         <input type="number" name="number3" value ="<?php echo $mylia;?>" ><br><br> 
-                        Įveskite atstumą jūrmylėmis: 
+                        Atstumas jūrmylėmis: 
                         <input type="number" name="number4"  value ="<?php echo $jurmylia;?>"><br><br> 
                         <input  type="submit" name="submit" value="Skaičiuoti"> <br><br> 
                      </form> 
