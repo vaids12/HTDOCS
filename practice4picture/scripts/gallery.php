@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 //echo "File is an image - ".$check['mime'];
             } else {
                 //echo "File is not an image";
-                include 'gallery_error.php';
+                include '../views/gallery_error.php';
                 die;
                 //$uploadValid = 0;
             }
@@ -36,14 +36,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $extensions = ["jpg"];
 
             if (in_array($imageFileType, $extensions) === false) {
-                include 'gallery_error.php';
+                include '../views/gallery_error.php';
                 die;
             }
 
             //upload file
 
             if (!move_uploaded_file($tempFile, $targetFile)) {
-                include 'gallery_error.php';
+                include '../views/gallery_error.php';
                 die;
             }
             $counter++;
@@ -54,14 +54,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $title3=$_POST['imageTitle3'];
         $title4=$_POST['imageTitle4'];
         $color = "bg-".$_POST['color'];
-        include 'gallery_view.php';
+        include '../views/gallery_view.php';
     } else {
         //echo "tst";
-        include 'gallery_error.php';
+        include '../views/gallery_error.php';
         die;
     }
 
 } else {
     //echo "tst"
-    include 'gallery_view.php';
+    include '../views/gallery_view.php';
 }

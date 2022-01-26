@@ -35,9 +35,23 @@
             </ul>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a href="http://practice4picture/views/gallery.php" class="nav-link">Gallery</a>
+                    <a href="http://localhost/practice4picture/views/gallery_view.php" class="nav-link">Gallery</a>
                 </li>
             </ul>
+            
+            <ul class="navbar-nav mr-auto">
+                 <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" > Calculator</a>
+         
+                        <div class="dropdown-menu" >
+                                <a class="dropdown-item" href="http://localhost/practice4picture/views/calculator_count.php">KMI Skaičiuoklė</a>
+                                <a class="dropdown-item" href="http://localhost/practice4picture/views/converter.php"">Matavimų skaičiuoklė</a>
+                         
+                        </div>
+                </li>
+            </ul>
+
+        
             <!-- Authentication links -->
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">

@@ -7,7 +7,7 @@ include '../layout/header.php';
             <div class="card bg-light mb-8">
                 <div class="card-header">Please Upload 4 Images to Gallery</div>
                 <div class="card-body">
-                    <form action="http://localhost/practice4picture/views/gallery.php" method="POST" enctype="multipart/form-data">
+                    <form action="http://localhost/practice4picture/scripts/gallery.php" method="POST" enctype="multipart/form-data">
                         <div class="row my-2">
                             <div class="col">
                                 <input type="file" class="form-control-file" name="image1">
