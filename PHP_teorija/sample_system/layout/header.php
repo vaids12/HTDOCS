@@ -36,7 +36,7 @@
                     <a href="#" class="nav-link">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Register</a>
+                    <a href="http://localhost/PHP_teorija/sample_system/views/register.php" class="nav-link">Register</a>
                 </li>
             </ul>
         </div>
