@@ -46,6 +46,11 @@
                         </div>
                 </li>
             </ul>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="http://localhost/practice4picture/views/test.php" class="nav-link">Test</a>
+                </li>
+            </ul>
 
         
             <!-- Authentication links -->
