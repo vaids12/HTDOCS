@@ -1,19 +1,8 @@
 <?php
 
 
-// $question= ['$question1','$question2','$question3'];
-
-// $question1= "Ilgiausia Lietuvos upė : ";
-// $answer11= " Neris";
-// $answer12= "Nemunas";
-// $answer13= "Venta";
 $color1=$color2=$color3='';
 
-
-// $question2= "Gilausias  Lietuvos ežeras : ";
-// $answer21= " Tauragnas";
-// $answer22= "Asveja";
-// $answer23= "Vištytis";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
     if($_POST['question1']=== 'B'){
