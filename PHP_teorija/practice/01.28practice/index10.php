@@ -36,7 +36,9 @@ if($_SERVER['REQUEST_METHOD']=="POST" && !empty($_POST['number'])){
     <form action="http://localhost/PHP_teorija/practice/01.28practice/slaptas.php" method="POST">
         <input type="password" name="password">
         <button class= "button"> SEND</button>
+
     </form>
+   
 
 
 

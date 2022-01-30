@@ -79,6 +79,7 @@
 
 
 
+
 echo '10 uzdavinys <br>';
 var_dump($_GET);
 
@@ -105,6 +106,7 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
         <input type="number" name="number">
          <button type= "submit">SUBMIT</button>
     </form>
+ 
 
 </body>
 </html>
