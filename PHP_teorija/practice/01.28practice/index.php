@@ -77,6 +77,26 @@
 //  echo $ln;
 //  echo "<br>";
 
+// 9 uzdavinys
+
+function prime($x){
+    
+    if (is_int($x)){
+        if($z<=1){
+            return 'Skaičius nėra pirminis';
+        }
+        for($i=2; $i<$z; $i++){
+            if($z%$i==0){
+                 return 'Skaičius nėra pirminis';
+            }          
+        }
+        return 'Skaičius yra pirminis';
+        
+    }else{
+        return 'Ivestas ne skaičius'
+    }
+}
+
 
 
 
@@ -84,9 +104,10 @@ echo '10 uzdavinys <br>';
 var_dump($_GET);
 
 if($_SERVER['REQUEST_METHOD']=="GET"){
-  
-    $color=$_GET['number'];
 
+    if (is_numeric($_GET['number']) && strlen($_GET['number'])==6 ){
+        $color='#'.$_GET['number'];
+    }
 }
 
 ?>
@@ -100,7 +121,7 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body style="background-color:  <?php echo '#'.$color;?>">
+<body style="background-color:  <?php echo $color;?>">
 
     <form action="http://localhost/PHP_teorija/practice/01.28practice/"  method="GET">
         <input type="number" name="number">

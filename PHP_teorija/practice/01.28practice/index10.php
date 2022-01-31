@@ -9,7 +9,7 @@ if($_SERVER['REQUEST_METHOD']=="POST" && !empty($_POST['number'])){
         header("location: ../01.28practice/index2.php"); 
     }else{    
           echo "Įvestas skaičius nėra nei vienetas, nei dvejetas";
-          $_POST=['']; 
+         
     }
 }
 
