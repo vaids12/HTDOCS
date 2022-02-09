@@ -353,30 +353,223 @@ If($M>$N && $M>$O && $M>$P){
 // echo '<pre>';
 // var_dump($array24);
 
+// echo '<br><br>';
+// echo ' 25 Uzdavinys <br>';
+
+// $array25=[];
+// $max=0;
+
+// for($i=0;$i<100; $i++){
+//     for ($j=0;$j<rand(5,18);$j++){
+//     $array25[$i][$j]=rand(5,75);
+//     }
+// }
+// foreach($array25 as $value){
+//     foreach($value as $number){
+//         if($number>$max){
+//              $max=$number;
+//         }      
+//     }
+// }
+
+// echo 'Didziausias skaicius '.$max;   
+// echo '<pre>';
+// var_dump($array25);
+
+// echo '<br><br>';
+// echo ' 26 Uzdavinys <br>';
+
+// $array26=[];
+// $min26=75;
+// $time=0;
+
+// for($i=0;$i<100; $i++){
+//     for ($j=0;$j<rand(5,18);$j++){
+//     $array26[$i][$j]=rand(5,75);
+//     }
+// }
+// foreach($array26 as $value){
+//         foreach($value as $number){        
+//             if($number<$min26){
+//                  $min26=$number;
+//                  $time=0;
+                
+//             }   
+//             if($min26==$number) {
+//                  $time++;
+//             }  
+//         }
+//     }
+
+   
+
+// echo 'Maziausias skaicius '.$min26.'. Jis kartojasi '.$time.' kartus';   
+// echo '<pre>';
+// var_dump($array26);
+
+// echo '<br><br>';
+// echo ' 27 Uzdavinys <br>';
+
+
+// $newArray27=[];
+
+// for($i=0; $i<100; $i++){
+//     for($j=0;$j<10;$j++){
+//         $newArray27[$j]=rand(1,17); 
+//       
+//     }
+//     $array27[$i]=$newArray27;
+// }
+
+// echo '<pre>';
+// var_dump($array27);
+
+// echo '<br>';
+
+// echo '<br><br>';
+// echo ' 28 Uzdavinys <br>';
+
+// $array28=[];
+
+// for($i=0; $i<100; $i++){
+//     for($j=0;$j<10;$j++){
+//           $array28[$i][$j]=rand(1,17);         
+//      }
+//  }
+
+// for ($i = 0; $i < count($array28); ++$i){
+//     for($j = 0; $j < count($array28); ++$j){
+//         if (array_sum($array28[$i]) < array_sum($array28[$j])){
+//             $temp = $array28[$i];
+//             $array28[$i] = $array28[$j];
+//             $array28[$j] = $temp;
+//         }
+//     }
+// }
+
+// echo '<pre>';
+// var_dump($array28);
+
+// echo '<br><br>';
+// echo ' 29 Uzdavinys <br>';
+// $array29=[];
+// $newArray29=[];
+
+// for($i=0; $i<100; $i++){
+//     for($j=0;$j<10;$j++){
+//           $array29[$i][$j]=rand(1,17);         
+//      }
+//  }
+
+// foreach($array29 as $value){
+//     foreach($value as $number){
+//         array_push($newArray29,$number);
+//       }      
+//  }
+
+// echo '<pre>';
+// var_dump($newArray29);
+
 echo '<br><br>';
-echo ' 25 Uzdavinys <br>';
+echo ' 30 Uzdavinys <br>';
+$array30=[];
+$newArray30=[];
 
-$array25=[];
-$max=0;
+for($i=0; $i<100; $i++){
+    for($j=0;$j<10;$j++){
+          $array30[$i][$j]=rand(1,17);         
+     }
+ }
 
-for($i=0;$i<100; $i++){
-    for ($j=0;$j<rand(5,18);$j++){
-    $array25[$i][$j]=rand(5,75);
-    }
-}
-foreach($array25 as $value){
+foreach($array30 as $value){
     foreach($value as $number){
-        if($number>$max){
-             $max=$number;
-        }      
-    }
+        array_push($newArray30,$number);
+      }      
+ }
+
+
+$count=count($newArray30);
+$sum30=array_sum($newArray30);
+$average=$sum30/$count;
+if($count%2!=0){
+    $mediana=$newArray30[floor($count/2)];
+}elseif($count%2==0){
+    $mediana= ($newArray30[$count/2]+$newArray30[($count/2)-1])/2;
 }
 
-echo 'Didziausias skaicius '.$max;   
-echo '<pre>';
-var_dump($array25);
+if($average>$mediana){
+    echo 'Didesnis yra aritmetinis vidurkis';
+}else{
+    echo 'Didesne yra vidurine reiksme';
+}
 
 
+// echo '<br><br>';
+// echo ' 31 Uzdavinys ';
+
+// function text(){
+// echo  "<h1> Labas </h1>";
+// }
+
+//  text();
+
+
+//  echo '<br><br>';
+//  echo ' 32 Uzdavinys <br>';
+
+
+//  function number($a,$b){
+//     if(is_integer($a) && is_integer($b)){
+//           return  $a+$b;
+//     }else{
+//         echo "not integer";
+//     } 
+//  }
+// $a=5;
+// $b=3;
+// echo number($a,$b);
+
+// echo '<br><br>';
+// echo ' 33 Uzdavinys <br>';
+
+// function number($a,$b){
+//     if(is_integer($a) && is_integer($b)){
+//         if($a>$b){
+//                return  $a.' didesnis';
+//         }elseif($a<$b){
+//             return  $b.' didesnis';
+//      }else{
+//          return $a.' yra lygus su '.$b;
+//      }
+       
+//     }else{
+//         echo "not integer";
+//     } 
+//  }
+
+// $a=58;
+// $b=58;
+// echo number($a,$b);
+
+echo '<br><br>';
+echo ' 34 Uzdavinys <br>';
+
+function year($a){
+    if(is_integer($a) && $a>999 && $a<10000 ){
+        if( $a%4!=0 || ($a%100==0 && $a%400!=0) ){          
+                return $a.' metai nekeliamieji';     
+        }else{
+            return $a.' metai keliamieji';
+        }
+
+
+    }else{
+      echo "not integer or invalid format ";
+    } 
+}
+
+$a=2020;
+echo year($a);
 ?>
 
 <!DOCTYPE html>
@@ -388,7 +581,7 @@ var_dump($array25);
     <title>Document</title>
 </head>
 <body>
-   
+
     
 </body>
 </html>
