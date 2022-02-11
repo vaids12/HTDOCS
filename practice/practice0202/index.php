@@ -707,10 +707,152 @@ if($average>$mediana){
 // }
 // $a=rand(1,10);
 // $b=['6','8','1','2','4','10','9'];
-
-
 // echo two($a,$b);
 
+// echo '<br><br>';
+// echo ' 41 Uzdavinys <br>';
+
+// function text($a){
+//     if (is_string($a)){
+//         return"<p>$a</p>";
+//     }else{
+//         return ' Not string';
+//     }
+// }
+// $a='Laba diena';
+// echo text($a);
+
+// echo '<br><br>';
+// echo ' 42 Uzdavinys <br>';
+// $b=0;
+// function text($a){
+//     if (is_string($a)){
+//         $b=strlen($a);
+//         return"<p>$a, teksto ilgis $b</p>";
+//     }else{
+//         return ' Not string';
+//     }
+// }
+// $a='Laba diena';
+// echo text($a);
+
+
+// echo '<br><br>';
+// echo ' 43 Uzdavinys <br>';
+
+// $b=0;
+// function text($a){
+//     if (is_string($a)){
+//         $b=strlen($a);
+//         if ($b%2==0){
+//             return"<p style='color:green'>$a, teksto ilgis $b</p>";
+//         }else{
+//             return"<p style='color:blue'>$a, teksto ilgis $b</p>";
+//         }
+        
+//     }else{
+//         return ' Not string';
+//     }
+// }
+// $a='Laba diena';
+// echo text($a);
+
+
+echo '<br><br>';
+echo ' 44 Uzdavinys <br>';
+
+// echo '<br><br>';
+// echo ' 45 Uzdavinys <br>';
+
+
+// function text($a){
+//     if (is_string($a) && strlen($a)>20){
+//        $split=str_split($a);
+//        $sum=0;
+//        for ($i=0; $i<count($split);$i++){
+//            if ($split[$i]==='a'){
+//                $sum++;
+//            }
+//        }
+//        return "tekste yra $sum a raidžių";       
+//     }else{
+//         return ' Not string or less than 20 simbols';
+//     }
+// }
+
+// $a='Suskaičiuoti, kiek tekste yra a  raidžių.';
+// echo text($a);
+
+echo '<br><br>';
+echo ' 46 Uzdavinys <br>';
+
+// echo '<br><br>';
+// echo ' 47 Uzdavinys <br>';
+
+// function ilgis($a,$b){
+//     if (is_string($a) && is_string($b)){
+//         if(strlen($a)>strlen($b)){
+//             return "Tekstas '$a' yra ilgesnis.";
+//         }elseif(strlen($a)<strlen($b)){
+//             return "Tekstas '$b' yra ilgesnis.";
+//         }else{
+//             return "Tekstai vienodi.";
+//         }
+//     }else{
+//         return ' Not string';
+//     }
+
+// }
+
+// $a='Suskaičiuoti, kiek tekste yra a raidžių.';
+// $b='Palyginti kuris tekstas yra ilgesnis.';
+// echo ilgis($a,$b);
+
+echo '<br><br>';
+echo ' 48 Uzdavinys <br>';
+
+
+// echo '<br><br>';
+// echo ' 49 Uzdavinys <br>';
+
+
+// function revers($b){
+//         $rev=[];
+//         $a=0;
+//         if (is_string($b) ){
+//             $a=explode(' ',$b);         
+//             for($i=0; $i<count($a);$i++){
+//                 array_unshift($rev,$a[$i]);
+//             }
+//            echo implode( ' ', $rev );
+//         }else{
+//             return ' Not string ';
+//         }
+//     }
+
+// $b='pirmas antras trecias ketvirtas penktas';
+// echo revers($b);
+
+
+
+
+// echo '<br><br>';
+// echo ' 50 Uzdavinys <br>';
+
+// function color($a){
+//     if (is_string($a) ){
+//        $split=str_split($a);   
+//        for ($i=0; $i<count($split);$i++){
+//            $col='#'.rand(0,999999);
+//           echo "<spam style='color:$col'>$split[$i]</spam>";
+//            }      
+//     }else{
+//         return ' Not string ';
+//     }
+// }
+
+// $a='Suskaiciuoti, kiek tekste yra a raidziu.';
+// echo color($a);
 ?>
 
 <!DOCTYPE html>
