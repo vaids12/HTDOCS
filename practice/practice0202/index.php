@@ -551,25 +551,166 @@ if($average>$mediana){
 // $b=58;
 // echo number($a,$b);
 
-echo '<br><br>';
-echo ' 34 Uzdavinys <br>';
+// echo '<br><br>';
+// echo ' 34 Uzdavinys <br>';
 
-function year($a){
-    if(is_integer($a) && $a>999 && $a<10000 ){
-        if( $a%4!=0 || ($a%100==0 && $a%400!=0) ){          
-                return $a.' metai nekeliamieji';     
-        }else{
-            return $a.' metai keliamieji';
-        }
+// function year($a){
+//     if(is_integer($a) && $a>999 && $a<10000 ){
+//         if( $a%4!=0 || ($a%100==0 && $a%400!=0) ){          
+//                 return $a.' metai nekeliamieji';     
+//         }else{
+//             return $a.' metai keliamieji';
+//         }
 
 
-    }else{
-      echo "not integer or invalid format ";
-    } 
-}
+//     }else{
+//       echo "not integer or invalid format ";
+//     } 
+// }
 
-$a=2020;
-echo year($a);
+// $a=2020;
+// echo year($a);
+
+// echo '<br><br>';
+// echo ' 35 Uzdavinys <br>';
+
+// $sort=$str=0;
+
+// function  number($a){
+//     if(is_integer($a)){
+//         $str=(string)$a;
+//         $sort=str_split($str);
+//         sort($sort);
+//         $sort=implode($sort);
+//         echo $sort;
+//     }else{
+//         echo "not integer";
+//     }
+
+// }
+// $a=2387555;
+// echo number($a);
+ 
+// echo '<br><br>';
+// echo ' 36 Uzdavinys <br>';
+
+
+// function argument($a){
+//     if ($a>=0){
+//         if($a>3){
+//             $sum=0;
+//             for($i=2;$i<$a; $i++){
+//                 if($a%$i==0){
+//                     $sum++;
+//                 }
+//             }return $sum;
+           
+//         }else{
+//             return 0;
+//         }
+//     }else{
+//         return 'negative number';
+//     }
+// }
+
+// $a=113;
+// echo argument($a);
+
+// echo '<br><br>';
+// echo ' 37 Uzdavinys <br>';
+
+// function  phNumber($a){
+//     If( is_array($a) && count($a)==10 ){
+       
+//         for($i=0; $i<count($a); $i++){
+//             if (!is_integer($a[$i])){
+//                 return "invalid format ";
+//             }
+//         }
+//         return "($a[0]$a[1]$a[2]) $a[3]$a[4]$a[5]-$a[6]$a[7]$a[8]$a[9]";
+//         // return 'TAIP';
+
+//     }else{
+//         return "invalid format ";
+//     }
+// }
+// $a=[2,5,2,5,4,5,6,5,8,5];
+
+// echo phNumber($a);
+
+// echo '<br><br>';
+// echo ' 38 Uzdavinys <br>';
+// function  primNumber($a){
+//     if(is_integer($a)){
+//         if($a<=1){
+//                 return ' skaicius nera pirminis ';
+//             }
+//         for($i=2; $i<$a; $i++){
+            
+//             if($a%$i==0){
+//                return ' skaicius nera pirminis ';
+               
+//             }
+//         }
+//         return ' skaicius pirminis ';
+
+//     }else{
+//         echo "not integer";
+//     }
+
+// }
+// $a=2;
+// echo primNumber($a);
+
+// echo '<br><br>';
+// echo ' 39 Uzdavinys <br>';
+
+// $sum=0;
+
+// function equalSum($a,$b){
+//     if  (is_integer($a) && is_integer($b)){
+//         $sum=$a+$b;
+//         if ($sum%2!=0){
+//            return ' Suma nelygine '.$sum;
+//         }
+//         return $sum;
+//     }
+//     if(is_string($a) && is_string($b)){
+//         $sum=strlen($a)+strlen($b); 
+//         if ($sum%2!=0){
+//            return ' Suma nelygine '.$sum;
+//         }
+//         return $sum;
+//     }
+// if ($sum%2!=0){
+//     echo ' Suma nelygine';
+// }
+// }
+// $a=5;
+// $b=8;
+
+// echo equalSum($a,$b);
+
+// echo '<br><br>';
+// echo ' 40 Uzdavinys <br>';
+// $z=0;
+
+// function two($a,$b){
+  
+//     for ($j=0; $j<count($b); $j++){
+//         if ($a == $b[$j]){  
+//             return 'true '.$a;
+//         }
+      
+//     }
+//  return 'false '.$a;
+// }
+// $a=rand(1,10);
+// $b=['6','8','1','2','4','10','9'];
+
+
+// echo two($a,$b);
+
 ?>
 
 <!DOCTYPE html>
