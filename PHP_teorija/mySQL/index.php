@@ -23,6 +23,22 @@ try {
 }
 
 
+///// Create Query
+
+$firstName="JOHN";
+$lastName="WILLIS";
+
+
+$sql1= "INSERT  INTO actor(first_name, last_name) VALUES ('$firstName', '$lastName')";
+$query=$conn->prepare($sql1);
+
+$query->execute();
+
+
+
+
+
+///Read Query
 //$sql = $conn ->prepare("SELECT * FROM actor WHERE actor_id = 1");
 $sql = $conn ->prepare("SELECT * FROM actor ");
 $sql -> execute();
@@ -36,6 +52,29 @@ $result = $sql->fetchAll(); //jei daugiau nei vienas rezultatas
 //print_r($result);
 
 //echo $result['first_name'];
+
+///Update 
+
+$id=1;
+$newName="Vardas";
+
+$sql4="UPDATE actor SET first_name='$newName' WHERE actor_id=$id";
+
+$query=$conn->prepare($sql4);
+$query->execute();
+
+
+
+
+//// Delete Query
+
+
+$id= 212;
+
+$sql3="DELETE FROM actor WHERE actor_id=$id";
+$query=$conn ->prepare($sql3);
+$query->execute();
+
 
 ?>
 
