@@ -36,6 +36,7 @@ if($_GET){
                       <label for="confirmPassword">Confirm Password</label>
                 </div>
                 <button type="submit" class="btn btn-lg btn-primary"> Register</button>
+            
 
             </form>
         </div>
