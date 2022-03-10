@@ -1,18 +1,20 @@
 <?php
 
-require_once("../db_connection.php");
+require_once("../db_conection.php");
 
 //susirenkam login info is formos
 
 
-if($_POST){
-    $email=$_POST['email'];
+if($_POST && !empty($_POST['nickname']) && !empty($_POST['password'])){
+    $nickname=$_POST['nickname'];
     $password=$_POST['password'];
+}else{
+    header("./views/login.php");
 }
 
 
 try {
-    $sql="SELECT * FROM users WHERE email='$email'";
+    $sql="SELECT * FROM users WHERE nickname='$nickname'";
     $query= $conn->prepare($sql);
     $query->execute();
     $result=$query->fetch();
@@ -28,14 +30,14 @@ if ($result){
 //tikriname slaptazodi
 
     if(password_verify($password, $dbPasswordHash)){
-        $_SESSION['username']= $result['first_name'];
-        // echo "Login successful";
-        header("Location: ../views/users.php");
+        $_SESSION['username']= $result['nickname'];
+        echo "Login successful";
+        header("Location:../views/users.php");
     }else{
         echo "Password is incorrect";
     }
 }else{
-    echo "Email does not exist";
+    echo "Nickname does  not exist";
 }
 
 // var_dump($result);

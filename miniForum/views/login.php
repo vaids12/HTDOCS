@@ -6,11 +6,11 @@
                 <div class="card-header">LOGIN</div>
                 <div class="card-body">
                     <form action="..\scripts\login.php" method= "POST" enctype="multipart/form-data">
-                        <div class= "form-group">
+                        <div class= "mb-2">
                       
-                                <input type="email" class="form-control" placeholder="your@email.com" name="email">
+                                <input type="nickname" class="form-control" placeholder="Nickname" name="nickname">
                         </div>
-                        <div class= "form-group">
+                        <div class= "mb-3">
                                 <input type="password" class="form-control" placeholder="Password" name="password">
                         </div>
                         <button type = "submit" class="btn btn-primary">Submit</button>
