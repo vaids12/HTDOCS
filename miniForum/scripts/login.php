@@ -32,7 +32,7 @@ if ($result){
     if(password_verify($password, $dbPasswordHash)){
         $_SESSION['username']= $result['nickname'];
         echo "Login successful";
-        header("Location:../views/users.php");
+        header("Location:../views/chat.php");
     }else{
         echo "Password is incorrect";
     }

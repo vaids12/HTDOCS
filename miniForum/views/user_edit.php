@@ -4,6 +4,7 @@ if(!isset($_SESSION['username'])){
     header("Location: login.php");
 }
 require_once("../db_conection.php");
+
 include'../layout/header.php';
 
 if($_GET){

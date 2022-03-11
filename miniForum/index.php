@@ -2,9 +2,7 @@
 
 include 'layout/header.php';
 
-// header("Location: views/login.php");
-
-
+header("Location: views/login.php");
 
 ?>
 
