@@ -26,6 +26,7 @@ try {
 
 if ($result){
     session_start();
+  
     $dbPasswordHash=$result['password'];   
 //tikriname slaptazodi
 

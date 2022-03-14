@@ -11,7 +11,7 @@ include'../layout/header1.php';
     try{  
         $nickname= $_SESSION['username'];
        
-        // $sql="SELECT id FROM users WHERE nickname='echo $_SESSION['username']'";
+     
         $sql="SELECT id FROM users WHERE nickname='$nickname'";
         $query = $conn->prepare($sql);
         $query->execute();
@@ -32,8 +32,7 @@ include'../layout/header1.php';
                 <div class="card-body">
                     <form action="..\scripts\chat_post.php" method= "POST" enctype="multipart/form-data">
                     <div class= "mb-2 ">
-                        <textarea name="message" id="" cols="30" rows="10" ></textarea>
-                                <!-- <input type="text" class="form-control" placeholder="message" name="message"> -->
+                        <textarea name="message" id="" cols="30" rows="10" ></textarea>                             
                         </div>
                         <input type="hidden" name="userid" value="<?php echo $result['id'];?>">
                       

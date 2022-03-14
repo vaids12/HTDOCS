@@ -1,27 +1,28 @@
 <?php 
-session_start();
-if(!isset($_SESSION['username'])){
-    header("Location: login.php");
-}
+// session_start();
+// if(!isset($_SESSION['username'])){
+//     header("Location: login.php");
+// }
 
 require_once("../db_conection.php");
-var_dump($_POST);
+
+
 
 if($_POST){
     try{
-       
-        $userid=$_POST['userid'];
-        $message=$_POST['message'];
-var_dump($userid);
-       
 
-        $sql ="INSERT INTO chat ( userid,  message) VALUES ('$userid','$message')";
+        $message=$_POST['message'];
+        $id =$_POST['id'];
+      
+     
+
+        $sql = "UPDATE chat SET message='$message' WHERE id='$id'";
         $query= $conn->prepare($sql);
        $result= $query->execute();
-       
-       
        if($result){
+          
            header("Location: ../views/chat.php");
+       
        }
 
 
@@ -31,6 +32,7 @@ var_dump($userid);
 
 }else{
 header("Location: ../");
+
 }
 
 ?>
