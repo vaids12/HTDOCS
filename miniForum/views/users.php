@@ -41,7 +41,11 @@ $result=$query->fetchAll();
                             </tr>
                             <?php
                             foreach($result as $user){
-                                echo"<tr><td>".$user['nickname']."</td><td>".$user['first_name']."</td><td>".$user['last_name']."</td><td>".$user['email']."</td><td>".$user['created']."</td><td>".$user['updated']."</td><td><a class='btn btn-warning' href='user_edit.php?userid=".$user['id']."'>Edit</a><a class='btn btn-danger' href='../scripts/user_delete.php?userid=".$user['id']."'>Delete</a></td><tr>";
+                                if($_SESSION['username']===$user['nickname']){
+                                echo"<tr><td>".$user['nickname']."</td><td>".$user['first_name']."</td><td>".$user['last_name']."</td><td>".$user['email']."</td><td>".$user['created']."</td><td>".$user['updated']."</td><td><a class='btn btn-warning' href='user_edit.php?userid=".$user['id']."'>Edit</a>&nbsp&nbsp<a class='btn btn-danger' href='../scripts/user_delete.php?userid=".$user['id']."'>Delete</a></td><tr>";
+                                }else{
+                                    echo"<tr><td>".$user['nickname']."</td><td>".$user['first_name']."</td><td>".$user['last_name']."</td><td>".$user['email']."</td><td>".$user['created']."</td><td>".$user['updated']."</td><tr>"; 
+                                }
                             }
                             
                             ?>

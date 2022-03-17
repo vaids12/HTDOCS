@@ -6,11 +6,13 @@ if(!isset($_SESSION['username'])){
 }
 
 require_once("../db_conection.php");
-var_dump($_GET);
+
 if($_GET){
 
     try{
-        $id=$_GET['id'];
+       $id=$_GET['id'];
+    
+   
         $sql="DELETE FROM chat WHERE id='$id'";
         $query=$conn->prepare($sql);
         $result= $query->execute();
@@ -21,9 +23,6 @@ if($_GET){
     }catch(PDOException $e){
         echo "Delete failed: ">$e->getMessage();
     }
-
-
-
 
 }else{
     header("Location: ../");

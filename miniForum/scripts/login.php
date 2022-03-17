@@ -1,15 +1,17 @@
 <?php
 
 require_once("../db_conection.php");
+ include'../layout/header.php';
 
-//susirenkam login info is formos
 
 
-if($_POST && !empty($_POST['nickname']) && !empty($_POST['password'])){
+if($_POST ){
+
     $nickname=$_POST['nickname'];
     $password=$_POST['password'];
 }else{
-    header("./views/login.php");
+    header("Location:../views/login.php");
+  
 }
 
 
@@ -22,18 +24,21 @@ try {
     echo "Select failed: ".$e->getMessage();
 }
 
-// pasitikrinam as yra toks email 
+
 
 if ($result){
     session_start();
+
   
     $dbPasswordHash=$result['password'];   
 //tikriname slaptazodi
 
     if(password_verify($password, $dbPasswordHash)){
         $_SESSION['username']= $result['nickname'];
+        $_SESSION['id']=$result['id'];
+
         echo "Login successful";
-        header("Location:../views/chat.php");
+        header("Location:../views/users.php");
     }else{
         echo "Password is incorrect";
     }
@@ -41,7 +46,7 @@ if ($result){
     echo "Nickname does  not exist";
 }
 
-// var_dump($result);
+
 
 
 

@@ -9,8 +9,8 @@ include'../layout/header.php';
 
 if($_GET){
     try{
-        $userid=$_GET['userid'];
-        $sql="SELECT * FROM chat WHERE userid='$userid'";
+        $id=$_GET['id'];
+        $sql="SELECT * FROM chat WHERE id='$id'";
         $query = $conn->prepare($sql);
         $query->execute();
         $result=$query->fetch();       

@@ -26,29 +26,28 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     die;
 }
 
-// try {
-//     $sql="SELECT nickname FROM users ";
-//     $query= $conn->prepare($sql);
-//     $query->execute();
-//     $result=$query->fetchAll();
-// }catch(PDOExceptionm $e){
-//     echo "Select failed: ".$e->getMessage();
-// }
-
-// foreach($result as $nickname){
-//     if($_POST['nickname']===$nickname){
-//         header("Location: ../views/register.php");
-//         die;
-//     }
-// }
+try {
+    $sql="SELECT nickname FROM users WHERE nickname='$nickname'  ";
+    $query= $conn->prepare($sql);
+    $query->execute();
+    $result=$query->fetch();
+}catch(PDOExceptionm $e){
+    echo "Select failed: ".$e->getMessage();
+}
 
 
-if($password==$confirmPassword){
+if($result){
+    header("Location: ../views/regist_err.php");
+   
+    die;
+}elseif($password==$confirmPassword){
     $password=password_hash($password,PASSWORD_BCRYPT);
 }else{
     header("Location: ../");
     die;
 }
+
+
 
 
 try{

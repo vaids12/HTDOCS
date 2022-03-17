@@ -5,20 +5,19 @@ if(!isset($_SESSION['username'])){
 }
 
 require_once("../db_conection.php");
-var_dump($_POST);
+
 
 if($_POST){
     try{
        
         $userid=$_POST['userid'];
         $message=$_POST['message'];
-var_dump($userid);
+
        
 
-        $sql ="INSERT INTO chat ( userid,  message) VALUES ('$userid','$message')";
+        $sql ="INSERT INTO chat ( userid,  message) VALUES ('$userid','$message') ";
         $query= $conn->prepare($sql);
-       $result= $query->execute();
-       
+        $result= $query->execute(); 
        
        if($result){
            header("Location: ../views/chat.php");
@@ -33,4 +32,4 @@ var_dump($userid);
 header("Location: ../");
 }
 
-?>
+?> 

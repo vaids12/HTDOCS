@@ -15,7 +15,7 @@ if($_GET){
         $query=$conn->prepare($sql);
         $result= $query->execute();
         if($result){
-            header("Location: ../views/users.php");
+            header("Location: ../views/login.php");
         }
     }catch(PDOException $e){
         echo "Delete failed: ">$e->getMessage();
