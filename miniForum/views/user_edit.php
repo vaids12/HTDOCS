@@ -5,7 +5,7 @@ if(!isset($_SESSION['username'])){
 }
 require_once("../db_conection.php");
 
-include'../layout/header.php';
+include'../layout/header1.php';
 
 if($_GET){
     try{
@@ -30,16 +30,16 @@ if($_GET){
                 <div class="card-body">
                     <form action="..\scripts\user_edit.php" method= "POST" enctype="multipart/form-data">
                     <div class= "form-group">
-                                <input type="text" class="form-control" placeholder="nickname" name="nickname" value="<?php echo $result['nickname']?>">
+                                <input type="text" class="form-control"  name="nickname" value="<?php echo $result['nickname']?>">
                         </div>
                         <div class= "form-group">
-                                <input type="text" class="form-control" placeholder="First Name" name="fname" value="<?php echo $result['first_name']?>">
+                                <input type="text" class="form-control"  name="fname" value="<?php echo $result['first_name']?>">
                         </div>
                         <div class= "form-group">
-                                <input type="text" class="form-control" placeholder="Last Name" name="lname" value="<?php echo $result['last_name']?>">
+                                <input type="text" class="form-control"  name="lname" value="<?php echo $result['last_name']?>">
                         </div>
                         <div class= "form-group">
-                                <input type="email" class="form-control" placeholder="your@email.com" name="email" value="<?php echo $result['email']?>">
+                                <input type="email" class="form-control"  name="email" value="<?php echo $result['email']?>">
                         </div>
                       
                      <input type="hidden" name="userid" value="<?php echo $result['id']?>">

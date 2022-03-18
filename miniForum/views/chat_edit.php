@@ -5,7 +5,7 @@ if(!isset($_SESSION['username'])){
 }
 require_once("../db_conection.php");
 
-include'../layout/header.php';
+include'../layout/header1.php';
 
 if($_GET){
     try{
