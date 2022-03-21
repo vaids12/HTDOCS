@@ -12,7 +12,8 @@ try{
   
       $sql ="SELECT c.message, u.nickname, c.created, c.updated, c.id, c.userid
     FROM users AS u
-    JOIN  chat AS c ON  c.userid=u.id";
+    JOIN  chat AS c ON  c.userid=u.id
+    ORDER BY c.created DESC";
 
  $query=$conn->prepare($sql);
  $query->execute(); 
@@ -32,7 +33,39 @@ $result=$query->fetchAll();
                
                 </div>
                 <div class= "card-body">
-                    <h5 class="card-title " style="text-align:center;"  >CHAT</h5>                                                                                                              
+                    <h5 class="card-title " style="text-align:center;"  >CHAT</h5>  
+
+                  
+                    <?php
+                 try{  
+                    $nickname= $_SESSION['username'];
+                               
+                    $sql="SELECT id FROM users WHERE nickname='$nickname'";
+                    $query = $conn->prepare($sql);
+                    $query->execute();
+                    $result1=$query->fetch();       
+                }catch(PDOException $e){
+                    echo "Selected failed:".$e->getMessage();
+                }
+                ?>
+                
+                <div class="container py-4">
+                    <div class="row justify-content-center">
+                         <div class="col-md-8">
+                            <div class="card bg-light mb-8">
+                                <form action="..\scripts\chat_post.php" method= "POST" enctype="multipart/form-data">
+                                 <div >                     
+                                <textarea name="message" id="" cols="100" rows="2" placeholder="Your post..." style="margin: 10px 0 0 20px;"></textarea>                             
+                                <input type="hidden" name="userid" value="<?php echo $result1['id'];?>">
+                                <button type = "submit" class="btn btn-success btn-lg " style="margin: 0 0 10px 600px;">CREATE POST</button>
+                                </div>                
+                                </form>
+                             </div>
+                         </div>
+                     </div>
+                </div> 
+                    
+                    
                              <?php
                             $icon='<i class="fa-solid fa-thumbs-up" style="font-size:20px;"></i>';
                        
@@ -64,7 +97,7 @@ $result=$query->fetchAll();
                                          }                                                                        
                              } 
                                   ?>                                                                                     
-                  <a href="chat_post.php?=" class='btn btn-success btn-lg  '>POST</a>                 
+                                 
                 </div>                          
         </div>
     </div>

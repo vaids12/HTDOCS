@@ -13,15 +13,21 @@ if($_GET){
         
        $chatid=$_GET['id'];
        $nickname=$_SESSION['username'];
+      
 
        $sql ="SELECT * FROM likes
        WHERE nickname='$nickname' AND chatid='$chatid'";
         $query = $conn->prepare($sql);
         $query->execute();
-        $result=$query->fetch();  
-        var_dump($result);     
+        $result=$query->fetch(); 
+     
+           
       
         if( $result){
+            $id=$result['id'];         
+            $sql="DELETE FROM likes WHERE id='$id'";
+            $query=$conn->prepare($sql);
+           $query->execute();
             header("Location: ../views/chat.php");
             die;
         }
