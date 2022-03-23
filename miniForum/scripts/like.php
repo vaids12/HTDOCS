@@ -14,7 +14,6 @@ if($_GET){
        $chatid=$_GET['id'];
        $nickname=$_SESSION['username'];
       
-
        $sql ="SELECT * FROM likes
        WHERE nickname='$nickname' AND chatid='$chatid'";
         $query = $conn->prepare($sql);

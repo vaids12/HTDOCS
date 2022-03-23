@@ -14,15 +14,11 @@ if($_POST){
         $message=$_POST['message'];
         $id =$_POST['id'];
       
-     
-
-        $sql = "UPDATE chat SET message='$message' WHERE id='$id'";
-        $query= $conn->prepare($sql);
-       $result= $query->execute();
-       if($result){
-          
-           header("Location: ../views/chat.php");
-       
+            $sql = "UPDATE chat SET message='$message' WHERE id='$id'";
+            $query= $conn->prepare($sql);
+            $result= $query->execute();
+       if($result){         
+           header("Location: ../views/chat.php");      
        }
 
 

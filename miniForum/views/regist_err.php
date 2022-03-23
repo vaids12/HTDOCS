@@ -3,7 +3,6 @@
 include '../layout/header.php';
 
 
-
 ?>
 <div class="container py-4">
     <div class="row justify-content-center">
@@ -14,14 +13,6 @@ include '../layout/header.php';
          </div>
     </div>
 </div>
-       
-
-
-
-
-
-
-
 
 <?php
 

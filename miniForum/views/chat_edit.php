@@ -29,18 +29,11 @@ if($_GET){
                 <div class="card-header">User edit</div>
                 <div class="card-body">
                     <form action="..\scripts\chat_edit.php" method= "POST" enctype="multipart/form-data">
-                    <div class= "form-group">
-                               
-                                <textarea name="message" class="form-control" cols="30" rows="10"  value=""><?php echo $result['message']?></textarea>
-                                
-                        </div>
-                       
-                      
-                     <input type="hidden" name="id" value="<?php echo $result['id']?>">
-                     
-
-                        <button type = "submit" class="btn btn-primary">Submit</button>
-
+                        <div class= "form-group">                              
+                            <textarea name="message" class="form-control" cols="30" rows="10"  value=""><?php echo $result['message']?></textarea>                               
+                        </div>                                            
+                            <input type="hidden" name="id" value="<?php echo $result['id']?>">
+                            <button type = "submit" class="btn btn-primary">Submit</button>
                     </form>
                    
                 </div>
