@@ -7,7 +7,7 @@ require_once("../db_conection.php");
 
 if($_POST ){
 
-    $nickname=$_POST['nickname'];
+    $email=$_POST['email'];
     $password=$_POST['password'];
 }else{
     header("Location:../views/login.php");
@@ -16,7 +16,7 @@ if($_POST ){
 
 
 try {
-    $sql="SELECT * FROM users WHERE nickname='$nickname'";
+    $sql="SELECT * FROM owners WHERE email='$email'";
     $query= $conn->prepare($sql);
     $query->execute();
     $result=$query->fetch();
@@ -34,11 +34,13 @@ if ($result){
 //tikriname slaptazodi
 
     if(password_verify($password, $dbPasswordHash)){
-        $_SESSION['username']= $result['nickname'];
+        $_SESSION['email']= $result['email'];
+        $_SESSION['first_name']= $result['first_name'];
         $_SESSION['id']=$result['id'];
+        $_SESSION['last_name']=$result['last_name'];
 
         echo "Login successful";
-        header("Location:../views/users.php");
+        header("Location:../views/owners.php");
     }else{
         echo "Password is incorrect";
     }
