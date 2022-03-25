@@ -1,11 +1,8 @@
 <?php 
-session_start();
-if(!isset($_SESSION['email'])){
-    header("Location: login.php");
-}
+
 require_once("../db_conection.php");
 
-include'../layout/header1.php';
+include'../layout/header.php';
 
 if($_GET){
    
@@ -29,7 +26,7 @@ if($_GET){
             <div class="card bg-light mb-8">
                 <div class="card-header">User edit</div>
                 <div class="card-body">
-                    <form action="..\scripts\owners_edit.php" method= "POST" enctype="multipart/form-data">
+                    <form action="..\scripts\owner_edit.php" method= "POST" enctype="multipart/form-data">
                     <div class= "form-group">
                                 <input type="text" class="form-control"  name="first_name" value="<?php echo $result['first_name']?>">
                         </div>

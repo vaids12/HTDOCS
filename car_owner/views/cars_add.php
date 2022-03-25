@@ -1,10 +1,10 @@
 <?php 
-session_start();
-if(!isset($_SESSION['email'])){
-    header("Location: login.php");
-}
-include'../layout/header1.php'
+
+include'../layout/header.php';
+
+$id=$_GET['id']
 ?>
+
 <div class="container py-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -26,8 +26,8 @@ include'../layout/header1.php'
                         <div class= "mb-2">
                                 <input type="text" class="form-control" placeholder="color" name="color">
                         </div>
-                       
-                      
+                        <!-- <input type="hidden" name="owner_id" value=<?php echo $result['owner_id']?>> -->
+                      <input type="hidden" name="id" value=<?php echo $id?>>
                         <button type = "submit" class="btn btn-primary ">ADD</button>
 
                     </form>

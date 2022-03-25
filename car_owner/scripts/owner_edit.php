@@ -1,8 +1,5 @@
 <?php 
-session_start();
-if(!isset($_SESSION['email'])){
-    header("Location: login.php");
-}
+
 
 require_once("../db_conection.php");
 
@@ -19,7 +16,7 @@ if($_POST){
         $query= $conn->prepare($sql);
        $result= $query->execute();
        if($result){
-           header("Location: ../views/owners.php");
+           header("Location: ../index.php");
        }
 
 

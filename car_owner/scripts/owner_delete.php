@@ -1,11 +1,9 @@
 <?php
 
-session_start();
-if(!isset($_SESSION['email'])){
-    header("Location: login.php");
-}
+
 
 require_once("../db_conection.php");
+
 
 if($_GET){
 
@@ -15,7 +13,7 @@ if($_GET){
         $query=$conn->prepare($sql);
         $result= $query->execute();
         if($result){
-            header("Location: ../views/login.php");
+            header("Location: ../index.php");
         }
     }catch(PDOException $e){
         echo "Delete failed: ">$e->getMessage();
