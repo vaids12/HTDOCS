@@ -15,6 +15,12 @@ for($i=0; $i<$j; $i++){
 var_dump($array);
 
 
+function line(){
+    echo"<p style='color:red; '>________________________________________________________________________________________________________________</p>";
+}
+
+echo'<br>';
+line();
 
 // 2. Naudojant ciklą apskaičiuoti masyvo iš 1 uždavinio reikšmių (pinigų esančių piniginėje) sumą;
 
@@ -31,6 +37,8 @@ for($i=0 ;$i<$count; $i++ ){
 
 echo $sum;
 
+echo'<br>';
+line();
 
 // 3. Naudojant ciklą apskaičiuoti masyvo iš 1 uždavinio popierinių pinigų (skaičių didesnių už 2 ) reikšmių sumą;
 
@@ -46,7 +54,8 @@ for($i=0; $i<$count; $i++){
 }
 
 echo $sum3;
-
+echo'<br>';
+line();
 
 // 4. Išleisti visus metalinius pinigus (reikšmes, kurios yra mažesnės arba lygios 2 padaryti lygias 0) iš 1 uždavinio;
 
@@ -62,7 +71,8 @@ for($i=0; $i<$count; $i++){
 }
 
 var_dump($array);
-
+echo'<br>';
+line();
 // 5. Surasti didžiausią reikšmę 1 uždavinio masyve ir paskaičiuoti kiek tokių didžiausių reikšmių masyve yra;
 
 echo " <br> 5 uzdavinys <br>";
@@ -78,16 +88,29 @@ for($i=0; $i<$count; $i++){
 }
 for($i=0; $i<$count; $i++){
     if($array[$i]==$max){
-        $rep=$rep++;
+       $rep++;
     }
 }
 
 echo "didziausias skaicius yra: ".$max.", jis yra ".$rep." kartu.";
-
+echo'<br>';
+line();
 // 6. Visus masyvo elementus, kurie yra lygūs 0, pakeisti į tų elementų indeksų (vietų,numerių) reikšmes;
 
 echo " <br> 6 uzdavinys <br>";
 $count=count($array);
+
+
+// $x=0;
+
+// foreach ($array as  $value) {
+//     if ($value === 0) {
+//         $array[$x]=$x;;
+//     }
+//     $x++;
+// }
+
+// print_r($array);
 
 for($i=0; $i<$count; $i++){
     if($array[$i]==0){
@@ -97,7 +120,8 @@ for($i=0; $i<$count; $i++){
 
 var_dump($array);
 
-
+echo'<br>';
+line();
 // 7. Į 1 uždavinio masyvą pridėti tiek naujų reikšmių (pinigų, atsitiktinių skaičių nuo 0 iki 10),kad masyvo ilgis būtų lygiai 30;
 
 echo " <br> 7 uzdavinys <br>";
@@ -111,7 +135,8 @@ for($i=0; $i<(30-$count); $i++){
 
 var_dump($array);
 
-
+echo'<br>';
+line();
 // 8. Naudojant 1 uždavinio masyvą iš jo reikšmių sukurti dar du papildomus masyvus. Į vieną iš 1 uždavinio masyvo pridėti reikšmes mažesnes arba lygias 2 (monetas), o į kitą didesnes nei 2 (popierinius pinigus);
 
 echo " <br> 8 uzdavinys <br>";
@@ -132,7 +157,8 @@ for($i=0; $i<$count; $i++){
 var_dump($array1);
 echo"<br>";
 var_dump($array2);
-
+echo'<br>';
+line();
 // 9. Sukurti masyvą (piniginę su dviem skyreliais) iš dviejų elementų, kurio pirmas elementas būtų masyvas iš 8 uždavinio su monetom, o antras elementas masyvas iš 8 uždavinio su popieriniais pinigais;
 
 echo " <br> 9 uzdavinys <br>";
@@ -150,7 +176,8 @@ for($i=0;$i<$count2; $i++ ){
 
 var_dump($array3);
 
-
+echo'<br>';
+line();
 // 10. Į 9 uždavinio masyvą, piniginę su dviem skyreliais, pridėti trečią skyrelį- masyvą su kortelėm: ['KIKA', 'Euro Vaistinė', 'Drogas', 'Ačiū', 'Lietuvos Geležinkeliai', 'Mano RIMI'];
 
 echo " <br> 10 uzdavinys <br>";
@@ -164,13 +191,16 @@ for($i=0; $i<$count4; $i++ ){
  }
 
  print_r($array3);
-
+ echo'<br>';
+ line();
 // 11. Korteles skyrelyje sudėlioti (išrūšiuoti) pagal abėcėlę;
 
 echo " <br> 11 uzdavinys <br>";
 sort($array3[2]);
 print_r($array3);
 
+echo'<br>';
+line();
 // 12. Į kortelių skyrelį pridėti mokėjimo kortelių 'MasterCard', 'Visa' (su rand generuokite atsitiktines reikšmes 'MasterCard' arba 'Visa' ir rašykite į masyvą) iš skirtingų bankų tiek,kad skyrelis (masyvo ilgis) pasidarytų lygus 20;
 
 echo " <br> 12 uzdavinys <br>";
@@ -183,7 +213,8 @@ $count=count($array3[2]);
     $count++;
  }
  print_r($array3);
-
+ echo'<br>';
+ line();
 // 13. Paskaičiuokite, kokio tipo kortelių ('MasterCard' arba 'Visa') yra daugiau;
 
 echo " <br> 13 uzdavinys <br>";
@@ -211,7 +242,8 @@ if($master>$visa){
     echo ' Korteliu vienodai';
 }
 
-
+echo'<br>';
+line();
 
 // 14. Sukurkite masyve (piniginėje) ketvirtą elementą (skyrelį) į kurį įdėkite 10 loterijos bilietų,kurių numerius sugeneruokite atsitiktinai su rand funkcija nuo 1000000000 iki9999999999;
 
@@ -223,13 +255,17 @@ for($i=0; $i<10; $i++ ){
 
  print_r($array3);
 
+ echo'<br>';
+ line();
 // 15. Loterijos bilietų masyvą išrūšiuoti nuo didžiausio numerio iki mažiausio;
 
 echo " <br><br> 15 uzdavinys <br>";
 
-sort($array3[3]);
+rsort($array3[3]);
 print_r($array3);
 
+echo'<br>';
+line();
 // 16. Į piniginės popierinių pinigų skyrelį įdėti bent 500 pinigų mažom kupiūrom ( generuoti atsitiktinius skaičius nuo 3 iki 10 ir dėti kaip naujus elementus, kol įdėta suma bus lygi arba viršys 500);
 
 echo " <br><br> 16 uzdavinys <br>";
@@ -247,6 +283,9 @@ while($sum <= 500){
 echo $sum."<br>";
 print_r($array3);
 
+echo'<br>';
+line();
+
 // 17. Patikrinti ar ką nors laimėjote. Bilieto numerius dalinkite iš 777 ir jeigu numeris išsidalinsbe liekanos - jūs laimėjote! Suskaičiuokite, kiek buvo laimingų bilietų.
 
 echo " <br><br> 17 uzdavinys <br>";
@@ -262,7 +301,8 @@ for($i=0; $i<$count; $i++ ){
 
  echo "Laimingu bilietu ".$sum;
 
-
+ echo'<br>';
+ line();
 
 // 18. Sukurkite penktą skyrelį ir į jį sudėkite nuotraukas: ['šuo', 'katė', 'automobilis', 'namas','kiemas'] ir jas išrūšiuokite pagal žodžių ilgį taip, kad pirma eitų trumpiausi žodžiai;
 
@@ -282,3 +322,6 @@ for($i=0; $i<$count; $i++ ){
 
 
  print_r($array3);
+
+
+
