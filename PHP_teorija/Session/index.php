@@ -1,1 +1,4 @@
-<?php header("Location: views/register.php");
+<?php 
+session_start();
+ECHO "Hello, ".$_SESSION['username'];
+?>

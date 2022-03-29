@@ -1,50 +1,67 @@
 <?php
-
+session_start();
 require_once("../db_conection.php");
 
-if($_SERVER['REQUEST_METHOD']=="POST"){
-   
-    if(!empty($_POST['fname']) && !empty($_POST['lname']) &&  !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirmPassword']) && !empty($_POST['nickname'])){
-    $nickname=$_POST['nickname'];
-    $firstName=$_POST['fname'];
-    $lastName=$_POST['lname'];
-    $email=$_POST['email'];
+$_SESSION['reg_errors']=[];
+
+
+if(!$_POST){
+    header("Location: ../views/register.php");
+}
+ 
+ if(!(isset($_POST['fname']) && isset($_POST['lname']) &&  isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirmPassword']) && isset($_POST['nickname']))){
+    echo "Something went wrong, please contact admin";
+}
+
+    $_SESSION['nickname']=$nickname=$_POST['nickname'];
+    $_SESSION['first_name']=$first_name=$_POST['fname'];
+    $_SESSION['last_name']=$last_name=$_POST['lname'];
+    $_SESSION['email']=$email=$_POST['email'];
     $password=$_POST['password'];
     $confirmPassword=$_POST['confirmPassword'];
 
-    }else{
-        header("Location: ../");
-        die;
-    } 
 
-}else{
-    header("Location: ../");
-    die;
-}
+    if(( $nickname=="" || $first_name=="" || $last_name=="" || $email=="" || $password=="" || $confirmPassword=="")){    
+        array_push($_SESSION['reg_errors'], "Please fill all fields!");
+    }
 
-try {
-    $sql="SELECT nickname FROM users WHERE nickname='$nickname'  ";
-    $query= $conn->prepare($sql);
-    $query->execute();
-    $result=$query->fetch();
-}catch(PDOExceptionm $e){
-    echo "Select failed: ".$e->getMessage();
-}
+    if(strlen($nickname)>50){
+        array_push($_SESSION['reg_errors'], "Nickname is too long. MAX 50 symbols");
+    }
+
+    if(strlen($first_name)>50){
+        array_push($_SESSION['reg_errors'], "First Name is too long. MAX 50 symbols");
+    }
+    
+    if(strlen($last_name)>50 ){
+        array_push($_SESSION['reg_errors'], "Last name is too long. Max 50 symbols");
+    }
+    
+    if(strlen($email)>50 ){
+        array_push($_SESSION['reg_errors'], "Email is too long. Max 50 symbols");
+    }
+    
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        array_push($_SESSION['reg_errors'], "Email format is invalid");
+    }
+    
 
 
-if($result){
-    header("Location: ../views/regist_err.php");  
-    die;
-}elseif($password==$confirmPassword){
+
+
+if($password==$confirmPassword){
     $password=password_hash($password,PASSWORD_BCRYPT);
 }else{
-    header("Location: ../");
-    die;
+    array_push($_SESSION['reg_errors'], "Passwords do not match!");
 }
 
+if(!empty($_SESSION['reg_errors'])){
+    header("Location: ../views/register.php");
+   die;
+}
 
 try{
-    $sql ="INSERT INTO users (nickname, first_name, last_name, email, password ) VALUES ('$nickname','$firstName','$lastName','$email', '$password')";
+    $sql ="INSERT INTO users (nickname, first_name, last_name, email, password ) VALUES ('$nickname','$first_name','$last_name','$email', '$password')";
     $query=$conn->prepare($sql);
     $query->execute(); 
     header("Location: ../views/login.php");

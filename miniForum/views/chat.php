@@ -1,7 +1,7 @@
 
 <?php 
 session_start();
-if(!isset($_SESSION['username'])){
+if(!isset($_SESSION['nickname'])){
     header("Location: login.php");
 }
 include '../layout/header1.php';
@@ -13,7 +13,7 @@ try{
       $sql ="SELECT c.message, u.nickname, c.created, c.updated, c.id, c.userid
     FROM users AS u
     JOIN  chat AS c ON  c.userid=u.id
-    ORDER BY c.created DESC";
+    ORDER BY c.updated DESC";
 
  $query=$conn->prepare($sql);
  $query->execute(); 
@@ -29,16 +29,14 @@ $result=$query->fetchAll();
         <div class="col-md-12">
             
                 <div class="card-header" style="text-align:center;">
-                 Hello, <?php echo $_SESSION['username'] ?>
+                 Hello, <?php echo $_SESSION['nickname'] ?>
                
                 </div>
                 <div class= "card-body">
-                    <h5 class="card-title " style="text-align:center;"  >CHAT</h5>  
-
-                  
+                    <h5 class="card-title " style="text-align:center;"  >CHAT</h5>                   
                     <?php
                  try{  
-                    $nickname= $_SESSION['username'];
+                    $nickname= $_SESSION['nickname'];
                                
                     $sql="SELECT id FROM users WHERE nickname='$nickname'";
                     $query = $conn->prepare($sql);
@@ -55,7 +53,7 @@ $result=$query->fetchAll();
                             <div class="card bg-light mb-8">
                                 <form action="..\scripts\chat_post.php" method= "POST" enctype="multipart/form-data">
                                  <div >                     
-                                <textarea name="message" id="" cols="100" rows="2" placeholder="Your post..." style="margin: 10px 0 0 20px;"></textarea>                             
+                                <textarea name="message" id="" cols="100" rows="2" placeholder="Your post..."  style="margin: 10px 0 0 20px; padding-left:10px;"></textarea>                             
                                 <input type="hidden" name="userid" value="<?php echo $result1['id'];?>">
                                 <button type = "submit" class="btn btn-success btn-lg " style="margin: 0 0 10px 600px;">CREATE POST</button>
                                 </div>                
@@ -77,10 +75,10 @@ $result=$query->fetchAll();
                                         $query->execute(); 
                                         $likes=$query->fetchAll();
                            
-                                     if($_SESSION['username']===$post['nickname']){
+                                     if($_SESSION['nickname']===$post['nickname']){
                                             echo "<div class='  p-3 mb-3 bg-light'> 
                                             <span  style='color:blue;'>".$post['nickname']."</span>
-                                            <span style='font-size:9px;margin-left:10px;' >".$post['created']."</span>
+                                            <span style='font-size:9px;margin-left:10px;' >".$post['updated']."</span>
                                             <p>".$post['message']."</p>
                                             <a class='btn btn-primary btn-sm'  href='../scripts/like.php?id=".$post['id']."'>LIKE&nbsp".$icon." &nbsp".count($likes)."</a>                                         
                                             <a class='btn btn-warning btn-sm' style='margin-left:1000px;' href='chat_edit.php?id=".$post['id']."'>Edit</a>                                          
@@ -89,7 +87,7 @@ $result=$query->fetchAll();
                                      }else{
                                             echo "<div class='  p-3 mb-3 bg-light'>                                  
                                             <span  style='color:blue;'>".$post['nickname']."</span>
-                                            <span style='font-size:9px;margin-left:10px;' >".$post['created']."</span>
+                                            <span style='font-size:9px;margin-left:10px;' >".$post['updated']."</span>
                                             <p>".$post['message']."</p>
                                             <a class='btn btn-primary btn-sm'  href='../scripts/like.php?id=".$post['id']."'>LIKE&nbsp".$icon." &nbsp".count($likes)."</a>
                                                                     

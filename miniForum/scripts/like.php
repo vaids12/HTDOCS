@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if(!isset($_SESSION['username'])){
+if(!isset($_SESSION['nickname'])){
     header("Location: login.php");
 }
 include '../layout/header1.php';
@@ -12,10 +12,10 @@ if($_GET){
     try{  
         
        $chatid=$_GET['id'];
-       $nickname=$_SESSION['username'];
+       $userid=  $_SESSION['user_id'];
       
        $sql ="SELECT * FROM likes
-       WHERE nickname='$nickname' AND chatid='$chatid'";
+       WHERE userid='$userid' AND chatid='$chatid'";
         $query = $conn->prepare($sql);
         $query->execute();
         $result=$query->fetch(); 
@@ -38,10 +38,10 @@ if($_GET){
         $query->execute();
         $result1=$query->fetch(); 
        
-        if($result1['userid']===$_SESSION['id']){
+        if($result1['userid']===$userid){
             header("Location: ../views/chat.php");
         }else{
-             $sql ="INSERT INTO likes ( chatid,  nickname) VALUES ('$chatid','$nickname')";
+             $sql ="INSERT INTO likes ( chatid,  userid) VALUES ('$chatid','$userid')";
                     $query= $conn->prepare($sql);
                      $result2= $query->execute(); 
        

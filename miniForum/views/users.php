@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if(!isset($_SESSION['username'])){
+if(!isset($_SESSION['nickname'])){
     header("Location: login.php");
 }
 include '../layout/header1.php';
@@ -24,7 +24,7 @@ $result=$query->fetchAll();
         <div class="col-md-12">
             <div class="card text-center">
                 <div class="card-header">
-                 Hello, <?php echo $_SESSION['username'] ?>
+                 Hello, <?php echo $_SESSION['nickname'] ?>
                 </div>
                 <div class= "card-body">
                     <h5 class="card-title">Users list</h5>
@@ -41,7 +41,7 @@ $result=$query->fetchAll();
                             </tr>
                             <?php
                             foreach($result as $user){
-                                if($_SESSION['username']===$user['nickname']){
+                                if($_SESSION['nickname']==$user['nickname']){
                                 echo"<tr><td>".$user['nickname']."</td><td>".$user['first_name']."</td><td>".$user['last_name']."</td><td>".$user['email']."</td><td>".$user['created']."</td><td>".$user['updated']."</td><td><a class='btn btn-warning' href='user_edit.php?userid=".$user['id']."'>Edit</a>&nbsp&nbsp<a class='btn btn-danger' href='../scripts/user_delete.php?userid=".$user['id']."'>Delete</a></td><tr>";
                                 }else{
                                     echo"<tr><td>".$user['nickname']."</td><td>".$user['first_name']."</td><td>".$user['last_name']."</td><td>".$user['email']."</td><td>".$user['created']."</td><td>".$user['updated']."</td><tr>"; 
