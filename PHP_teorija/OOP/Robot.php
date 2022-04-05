@@ -4,7 +4,7 @@ class Robot
 {
     private $name;
 
-    public  function greet(){//  public final function neleidzia overridint
+    public  function greet(){//  public final function neleidzia overwridint
         return "Hello!";
     }
 
