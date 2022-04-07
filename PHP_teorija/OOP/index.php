@@ -17,6 +17,9 @@
 
 // private- metodus ir savybes galime pasiekti tik klases viduje
 
+//protected klaseje ir kitose klasese
+
+
 
 
 

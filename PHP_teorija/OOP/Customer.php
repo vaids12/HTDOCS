@@ -4,13 +4,17 @@
 // private - prieinamas tik toje klaseje
 // protected - pasiekiama klaseje ir is jos praplestose klasese
 
+require("Trait.php");
+
 class Customer
 {
+    use Logger;
     protected $name;
 
     public function __construct($name)
     {
         $this-> name=$name;
+        $this->log("New record");
     }
 
     protected function format()

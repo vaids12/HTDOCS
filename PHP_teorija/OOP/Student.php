@@ -29,16 +29,40 @@ class Student
         return $this-> weight;
     }
 
+    public function view()
+    {
+        echo $this->name. " ".$this->height." cm ".$this->weight." kg";
+    }
+
+    public function __toString()// turi grazinti stringa
+    {
+        return "Vardas : $this->name. Ugis: $this->height. Svoris: $this->weight";
+    }
+
 }
 
 $student1 = new Student("Jonas", 180, 70);
 $student2 = new Student ("Ona",160, 50);
 
-var_dump($student1);
-echo "<br>";
-echo $student2->getName(),$student2->getWeight();
-echo "<br>";
-echo $student2->getWeight()." kg";
+// var_dump($student1);
+// echo "<br>";
+// echo $student2->getName(),$student2->getWeight();
+
+// $student1->view();
+
+// echo $student1;
+
+
+
+$studentStr=serialize($student1);
+
+// var_dump($studentStr);//byte-stream representation
+
+$newStudent= unserialize($studentStr);
+
+var_dump($newStudent);
+
+
 
 
 ?>

@@ -1,7 +1,10 @@
 <?php
 // declare(strict_types=1);
+
 class Book
 {
+    
+
     private $name;
     private $price;
 
@@ -9,6 +12,7 @@ class Book
     {
         $this -> name=$knygosPavadinimas;
         $this-> price=$knygosKaina;
+
     }
 
    
@@ -29,7 +33,7 @@ class Book
 
 }
 
-// $firstBook = new Book("Harry Potter", 8.99);
+$firstBook = new Book("Harry Potter", 8.99);
 
 // echo $firstBook-> getPrice();
 //____________________________________________________________________________________________________________________
@@ -120,7 +124,7 @@ $childrensBook = new ChildrensBook("Pepe Ilgakojine", 23.69, 8);
 
 // $childrensBook-> setRecAge(7);
 
-echo $childrensBook->getRecAge().' '.$childrensBook-> getName().' '.$childrensBook-> getPrice();
+// echo $childrensBook->getRecAge().' '.$childrensBook-> getName().' '.$childrensBook-> getPrice();
 
 
 

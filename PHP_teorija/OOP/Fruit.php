@@ -11,7 +11,7 @@ class Fruit
         echo "Fruits are great!";
     }
 
-    //self::definition();
+    //  self::definition();
 
 }
 
