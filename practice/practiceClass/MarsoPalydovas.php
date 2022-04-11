@@ -11,7 +11,6 @@ tvarka -->
 class MarsoPalydovas
 {
     Public static $palydovas=[];
-       private $title;
       Public static $count=0;
     
      
@@ -19,13 +18,11 @@ class MarsoPalydovas
 
     public function __construct($title)
     { 
-        if(self::$count==0){
-            $this->title="Deimas";   
-           array_push(self::$palydovas,($this->title));
+        if(self::$count==0){ 
+           array_push(self::$palydovas,"Deimas");
             self::$count++;
         }elseif(self::$count==1){
-            $this->title="Fobas";
-            array_push(self::$palydovas,($this->title));
+            array_push(self::$palydovas,"Fobas");
             self::$count++;
             
         }else{
@@ -34,23 +31,25 @@ class MarsoPalydovas
 
     }
 
-    public function getTitle()
-    {
-        return $this->title;
+    // public function getTitle()
+    // {
+    //     return $this->title;
+    //     return self::$palydovas[rand(0,1)];
       
-    }
+    // }
 
 }
 
 $palydovas1 = new MarsoPalydovas("labas");
 $palydovas2 = new MarsoPalydovas("labas");
 $palydovas3 = new MarsoPalydovas("labas");
-// $palydovas32 = new MarsoPalydovas("labas");
+$palydovas4 = new MarsoPalydovas("labas");
 
 
-echo $palydovas3-> getTitle();
-
-// var_dump(MarsoPalydovas::$palydovas);
+// echo $palydovas1-> getTitle();
+echo "<br>";
+var_dump(MarsoPalydovas::$palydovas);
+// echo MarsoPalydovas::$palydovas[0];
 
 
 ?>
