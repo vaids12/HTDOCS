@@ -13,18 +13,10 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-    <div class="container">
-    <a href="#" class="navbar-brand" style="color:blue; ">Tasker</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarItems" aria-controls="navbarItems" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a href="http://localhost/practice.Task" class="nav-link" style="color:blue; padding-right:100px;" >Home</a>
-                </li>
-               
-            </ul>
-        </div>
-    </nav>
+     <div class="container">
+        <a href="http://localhost/practice.Task" class="navbar-brand" >Tasker</a>
+        <a  class="navbar-brand" href="http://localhost/practice.Task" >Home</a>         
+     </div>
+ </nav>
     
     </script>

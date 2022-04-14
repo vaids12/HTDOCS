@@ -42,7 +42,7 @@ class Task
         // prisidedam sujungima prie DB
         self::$conn = $db;
         //duomenu istraukimas
-        $sql= "SELECT * FROM ".self::$table;
+        $sql= "SELECT * FROM ".self::$table." ORDER BY deadline ASC" ;
         $query = self::$conn->prepare($sql);
         $query->execute();
         $result=$query->fetchAll();
@@ -93,6 +93,7 @@ class Task
 
     public  function delete()
     {
+       
         $sql= "DELETE FROM  ".self::$table ." WHERE id= ".$this->id;
     
         $query =self::$conn->prepare($sql);

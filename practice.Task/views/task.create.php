@@ -29,17 +29,26 @@ if($_POST){
 
 
 ?>
+ <div class="container py-4">
+         <div class="row justify-content-center">
+             <div class="col-md-8">
+                 <div class="card bg-light mb-8"  >
+                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" style='padding:20px;' method="POST">
+                                <div>
+                                    <input type="text" placeholder ="Title" name="title">
+                                    <input type="datetime-local" placeholder= "Deadline"  name="deadline">
+                                </div>
+                                
+                                <div style='padding:10px 0 10px;'>
+                                    <textarea name="description" id="" cols="30" rows="10" placeholder= "Description..." ></textarea>
+                                </div>
+                                <input type="submit" class='btn btn-secondary'  >
 
-<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
-<input type="text" placeholder ="Title" name="title">
-<input type="text" placeholder= "Description"  name="description">
-<input type="datetime-local" placeholder= "Deadline"  name="deadline">
-<input type="submit" >
-
-</form>
-
-
-
+                      </form>
+                 </div>
+             </div>
+        </div>
+ </div> 
 <?php
 include "../layout/footer.php";
 ?>
