@@ -24,8 +24,8 @@ if ($_POST){
 
     }else{
         $task->title= $_POST['title'];
-    $task->description=$_POST['description'];
-    $task->deadline=$_POST['deadline'];
+        $task->description=$_POST['description'];
+        $task->deadline=$_POST['deadline'];
         echo "<p style='color:red; '>Please fill all fields!</p>";
 
     }
