@@ -52,7 +52,7 @@ if($_POST){
                                     echo "<td><a class='btn btn-secondary btn-sm' href='views/task.edit.php/?id=".$task['id']."'>Update</a>";
                                     echo '<form action=""  method="POST">
                                         <input type="hidden" name="id" value='.$task['id'].'>';
-                                      echo '<input type="submit" name="submit" value="DELETE" >
+                                      echo '<input type="submit" class="btn btn-secondary btn-sm" name="submit" value="DELETE" style="margin: 5px ;">
                                          </form>
                                     </td></tr>';
                                     }

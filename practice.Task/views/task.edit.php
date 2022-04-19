@@ -35,7 +35,6 @@ if($_POST){
                  <div class="card bg-light mb-8"  >
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]."?id={$id}");?>"  style='padding:20px;' method="POST">
                     <input type="text"  name="title" value="<?php echo $task->title;?>">
-                    <!-- <input type="text"  name="description" value="<?php echo $task->description;?>" > -->
                     <input type="datetime"  name="deadline" value="<?php echo $task->deadline;?>" >
                     <div style='padding:10px 0 10px;'>
                                     <textarea name="description" id="" cols="60" rows="10"> <?php echo $task->description;?></textarea>
