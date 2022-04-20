@@ -16,3 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', [AssignmentsController::class, 'index'])->name('dashboard');
+    Route::get('/assignment', [AssignmentsController::class, 'add']);
+});
+
+// To Do: Assignments index, add, create, edit, update routes
+
+
