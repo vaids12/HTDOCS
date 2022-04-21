@@ -10,13 +10,13 @@ class AssignmentsController extends Controller
 {
     public function index()
     {
-        $assignmets = auth()->user()->assignments();
-        return view('dashbord', compact('assignment'));
+        $assignments = auth()->user()->assignments();
+        return view('dashboard', compact('assignments'));
     }
 
     public function add()
     {
-        return view('add');
+        return view('assignment.add');
     }
 
     public function create(Request $request)
@@ -30,6 +30,32 @@ class AssignmentsController extends Controller
         $assignment-> user_id = auth()->user()->id;
         $assignment->save();
         return redirect('/dashboard');
+    }
+
+    public function edit(Assignment $assignment)
+    {
+        if(auth()->user()->id == $assignment->user_id){
+            return view('assignment.edit', compact('assignment'));
+        }else{
+            return redirect('/dashboard');
+        }
+    }
+
+    public function update(Request $request, Assignment $assignment)
+    {
+        if(isset($_POST['delete'])){
+            $assignment->delete();
+            return redirect ('/dashboard');
+
+        }else{
+           $this->validate($request, [
+               'description'=>'required'
+           ]) ;
+           $assignment->description= $request->description;
+           $assignment->save();
+           return redirect ('/dashboard');
+        }
+
     }
 
 }

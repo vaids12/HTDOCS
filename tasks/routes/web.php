@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AssignmentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,12 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', [AssignmentsController::class, 'index'])->name('dashboard');
+
     Route::get('/assignment', [AssignmentsController::class, 'add']);
+    Route::post('/assignment', [AssignmentsController::class, 'create']);
+
+    Route::get('/assignment/{assignment}', [AssignmentsController::class, 'edit']);
+    Route::post('/assignment/{assignment}', [AssignmentsController::class, 'update']);
 });
 
 // To Do: Assignments index, add, create, edit, update routes
