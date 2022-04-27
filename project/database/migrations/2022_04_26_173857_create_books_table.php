@@ -19,7 +19,7 @@ class CreateBooksTable extends Migration
             $table->string('author', 100);
             $table->date('yaer_of_release');
             $table->float('price', 5, 2);
-            $table->foreignId('themes_id');
+            $table->foreignId('themes_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
