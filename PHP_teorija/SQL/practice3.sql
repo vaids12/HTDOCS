@@ -1,6 +1,7 @@
 . Parašykitr SQL užklausą, pateikiančią kliento vardą, kliento pavardę, atliktą mokėjimą, mokėjimo
 datą tiems mokėjimams, kurių vertė yra 2.99, 4.99, 6.99. Naudokite lenteles „customer“ ir
 „payment“.
+=
 
 
 SELECT c.first_name, c.last_name,p.amount, p.payment_date 

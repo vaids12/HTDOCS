@@ -1,5 +1,6 @@
 {
     "require": {
-        "laravel/jetstream": "^2.7"
+        "laravel/jetstream": "^2.7",
+        "laravel/ui": "^3.4"
     }
 }
