@@ -17,7 +17,7 @@ if($_POST){
         // create a new product into database:
 
         $sql = "INSERT INTO products ( category,  model, brand, warehouse ) 
-        VLUES ('$category', '$model', '$brand', '$warehouse')";
+        VALUES ('$category', '$model', '$brand', '$warehouse')";
         $query= $conn->prepare($sql);
         $result= $query->execute();
         if($result){
