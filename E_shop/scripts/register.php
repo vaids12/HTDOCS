@@ -16,6 +16,23 @@ if(!$_POST){
     $password=$_POST['password'];
     $confirmPassword=$_POST['confirmPassword'];
 
+    
+    // get information about the nickname from database:
+
+    try {
+        $sql="SELECT * FROM users WHERE nickname='$nickname' ";
+        $query= $conn->prepare($sql);
+        $query->execute();
+        $user=$query->fetch();
+    }catch(PDOExceptionm $e){
+        echo "Select  for users failed: ".$e->getMessage();
+    }
+
+    if($user){
+        array_push($_SESSION['reg_errors'], "Nickname in use!");
+    }
+   
+
     // Check if typed all fields and check format:
 
 
@@ -71,8 +88,5 @@ try{
 }catch(PDOExeption $e){
     echo "Insert failed: ".$e->getMassage();
 }
-
-
-
 
 ?>

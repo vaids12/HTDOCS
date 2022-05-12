@@ -18,7 +18,6 @@ if($_POST){
 
         // Updade user information to database:
 
-
         $sql = "UPDATE users SET nickname='$nickname', first_name='$firstName', last_name='$lastName', email='$email', role_id='$role_id' WHERE id='$userid'";
         $query= $conn->prepare($sql);
         $result= $query->execute();

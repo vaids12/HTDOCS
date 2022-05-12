@@ -23,9 +23,6 @@ if($_POST){
         echo "Delete failed: ">$e->getMessage();
     }
 
-
-
-
 }else{
     header("Location: ../");
 }

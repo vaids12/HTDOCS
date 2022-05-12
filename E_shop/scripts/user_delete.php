@@ -15,15 +15,13 @@ if($_POST){
         // delete  user from database:
 
         $sql="DELETE FROM users WHERE id='$userid'";
-        $uery=$conn->prepare($sql);
+        $query=$conn->prepare($sql);
         $query->execute();    
         header("Location: ../views/user.php");
         
     }catch(PDOException $e){
         echo "Delete failed: ">$e->getMessage();
     }
-
-
 
 
 }else{

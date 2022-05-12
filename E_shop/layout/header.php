@@ -45,9 +45,8 @@ session_start();
                             </li>
                             <li class='nav-item'>
                                 <a href='http://localhost/E_shop/views/user.php' class='nav-link' style='color:blue;'>User list</a>
-                            </li>
-                        ";                            
-                        } 
+                            </li> ";
+                         }                                                  
                     echo"
                     <li class='nav-item'>
                          <a href='http://localhost/E_shop/scripts/logout.php' class='nav-link' style='color:blue;'>Logout</a>
