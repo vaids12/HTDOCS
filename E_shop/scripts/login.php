@@ -5,7 +5,7 @@ $_SESSION['auth_errors']=[];
 
 require_once("../db_connection.php");
 
-
+// get information about the users from database:
 
 try {
     $sql="SELECT * FROM users ";
@@ -16,20 +16,18 @@ try {
     echo "Select  for users failed: ".$e->getMessage();
 }
 
-
 if(!$_POST ){
-    header("Location:../views/login.php");  
-
+    header("Location:../");  
 }
-
 
 if(!isset($_POST['nickname']) || !isset($_POST['password']) ){
     echo "Something went wrong, please contact your admin!";
 }
 
-
 $nickname=$_POST['nickname'];
 $password=$_POST['password'];
+
+// Check if typed all fields and check nickname :
 
 if($nickname==''){
     array_push($_SESSION['auth_errors'], "Please enter your nickname");
@@ -50,7 +48,8 @@ foreach($users as $user){
 if ($nickname_exists===0){
     array_push($_SESSION['auth_errors'], " Nickname does not exist");
 }
-    
+
+// check if there is the user, is the password was correct and set the session:
 
 foreach ($users as $user) {
     if ($user['nickname']==$nickname){
@@ -67,12 +66,8 @@ foreach ($users as $user) {
     }
 }
 
-
-
 if(!empty($_SESSION ['auth_errors'])){
-    header("Location: ../views/login.php");
-  
-   
+    header("Location: ../");  
 }
 
 

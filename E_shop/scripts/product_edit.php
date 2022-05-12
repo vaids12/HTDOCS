@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if(!isset($_SESSION['nickname'])){
-    header("Location: login.php");
+    header("Location: ../index.php");
 }
 
 require_once("../db_connection.php");
@@ -14,14 +14,16 @@ if($_POST){
         $brand=$_POST['brand'];
         $warehouse=$_POST['warehouse'];
 
+        // update the post to database:
+
         $sql = "UPDATE products SET category='$category', model='$model', brand='$brand', warehouse='$warehouse' WHERE id='$product_id'";
         $query= $conn->prepare($sql);
-       $result= $query->execute();
-       if($result){
-           header("Location: ../views/main.php");
-       }
-
-
+        $result= $query->execute();
+        
+        if($result){
+            header("Location: ../views/main.php");
+        }
+        
     }catch(PDOException $e){
         echo "Update failed: ".$e->getMessage();
     }

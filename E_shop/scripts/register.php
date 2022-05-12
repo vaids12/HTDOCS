@@ -8,17 +8,15 @@ $_SESSION['reg_errors']=[];
 if(!$_POST){
     header("Location: ../views/register.php");
 }
- 
- if(!(isset($_POST['fname']) && isset($_POST['lname']) &&  isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirmPassword']) && isset($_POST['nickname']))){
-    echo "Something went wrong, please contact admin";
-}
-
-   $nickname=$_POST['nickname'];
+    
+    $nickname=$_POST['nickname'];
     $first_name=$_POST['fname'];
     $last_name=$_POST['lname'];
-   $email=$_POST['email'];
+    $email=$_POST['email'];
     $password=$_POST['password'];
     $confirmPassword=$_POST['confirmPassword'];
+
+    // Check if typed all fields and check format:
 
 
     if(( $nickname=="" || $first_name=="" || $last_name=="" || $email=="" || $password=="" || $confirmPassword=="")){    
@@ -47,9 +45,12 @@ if(!$_POST){
     
 
 
-
+// Check if typed password is the same in two inputs:
 
 if($password==$confirmPassword){
+
+    // encrypt the password:
+
     $password=password_hash($password,PASSWORD_BCRYPT);
 }else{
     array_push($_SESSION['reg_errors'], "Passwords do not match!");
@@ -60,11 +61,13 @@ if(!empty($_SESSION['reg_errors'])){
    die;
 }
 
+// create a new user into database:
+
 try{
     $sql ="INSERT INTO users (nickname, first_name, last_name, email, password ) VALUES ('$nickname','$first_name','$last_name','$email', '$password')";
     $query=$conn->prepare($sql);
     $query->execute(); 
-    header("Location: ../views/login.php");
+    header("Location: ../");
 }catch(PDOExeption $e){
     echo "Insert failed: ".$e->getMassage();
 }

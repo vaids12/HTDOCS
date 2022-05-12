@@ -9,20 +9,16 @@ require_once("../db_connection.php");
 
 if($_POST){
 
-  
-
     try{
         $userid=$_POST['id'];
 
-   
+        // delete  user from database:
 
         $sql="DELETE FROM users WHERE id='$userid'";
-        $query=$conn->prepare($sql);
-        $query->execute();
-
-     
-            header("Location: ../views/user.php");
-    
+        $uery=$conn->prepare($sql);
+        $query->execute();    
+        header("Location: ../views/user.php");
+        
     }catch(PDOException $e){
         echo "Delete failed: ">$e->getMessage();
     }

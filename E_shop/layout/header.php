@@ -26,44 +26,39 @@ session_start();
         </button>
         <div class="collapse navbar-collapse" id="navbarItems">
            
-            <!-- Authentication links -->
+              <!-- nav bar -->
+
             <ul class="navbar-nav ms-auto">
                 <?php
-                
-
-                if(!isset($_SESSION['nickname'])){
-
-                          echo"<li class='nav-item'>
-                            <a href='http://localhost/E_shop/views/login.php' class='nav-link' style='color:blue; ' >Login</a>
-                            </li>
-                            <li class='nav-item'>
-                            <a href='http://localhost/E_shop/views/register.php' class='nav-link'  style='color:blue; '>Register</a>
-                            </li>";
-                    }else{                
-                        if($_SESSION['role_id']==1){
-                        echo"
+                if(!isset($_SESSION['nickname'])){ 
+                    echo"<li class='nav-item'>                        
+                    <a href='http://localhost/E_shop' class='nav-link' style='color:blue; ' >Login</a>
+                    </li>
+                    <li class='nav-item'>
+                    <a href='http://localhost/E_shop/views/register.php' class='nav-link'  style='color:blue; '>Register</a>
+                    </li>";
+                 }else{                
+                     if($_SESSION['role_id']==1){
+                            echo"                      
                             <li class='nav-item'>
                                 <a href='http://localhost/E_shop/views/main.php' class='nav-link' style='color:blue;'>Product List</a>
                             </li>
                             <li class='nav-item'>
                                 <a href='http://localhost/E_shop/views/user.php' class='nav-link' style='color:blue;'>User list</a>
                             </li>
-                            ";  
-                           
+                        ";                            
                         } 
-                         echo"
-                            <li class='nav-item'>
-                                <a href='http://localhost/E_shop/scripts/logout.php' class='nav-link' style='color:blue;'>Logout</a>
-                            </li>"   ;           
-               }
+                    echo"
+                    <li class='nav-item'>
+                         <a href='http://localhost/E_shop/scripts/logout.php' class='nav-link' style='color:blue;'>Logout</a>
+                    </li>";           
+                 }
                    
                 ?>
-            
-                
-                
+                            
             </ul>
         </div>
-        </div>
-    </nav>
+     </div>
+</nav>
     
-    </script>
+</script>

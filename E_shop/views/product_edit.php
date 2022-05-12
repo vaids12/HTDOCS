@@ -1,11 +1,13 @@
 <?php 
 session_start();
 if(!isset($_SESSION['nickname'])){
-    header("Location: login.php");
+    header("Location: /..");
 }
 require_once("../db_connection.php");
 
 include'../layout/header.php';
+
+// get the information about product  from database:
 
 if($_GET){
     try{
@@ -18,10 +20,10 @@ if($_GET){
         echo "Selected failed:".$e->getMessage();
     }
 }
-
-
-
 ?>
+
+<!-- form for product edit with product information: -->
+
 <div class="container py-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -29,36 +31,26 @@ if($_GET){
                 <div class="card-header">User edit</div>
                 <div class="card-body">
                     <form action="..\scripts\product_edit.php" method= "POST" enctype="multipart/form-data">
-                    <div class= "form-group">
-                                <input type="text" class="form-control"  name="category" value="<?php echo $result['category']?>">
+                        <div class= "form-group">
+                            <input type="text" class="form-control"  name="category" value="<?php echo $result['category']?>">
                         </div>
                         <div class= "form-group">
-                                <input type="text" class="form-control"  name="model" value="<?php echo $result['model']?>">
+                            <input type="text" class="form-control"  name="model" value="<?php echo $result['model']?>">
                         </div>
                         <div class= "form-group">
-                                <input type="text" class="form-control"  name="brand" value="<?php echo $result['brand']?>">
+                            <input type="text" class="form-control"  name="brand" value="<?php echo $result['brand']?>">
                         </div>
                         <div class= "form-group">
-                                <input type="text" class="form-control"  name="warehouse" value="<?php echo $result['warehouse']?>">
-                        </div>
-                        
-                      
-                     <input type="hidden" name="product_id" value="<?php echo $result['id']?>">
-
+                            <input type="text" class="form-control"  name="warehouse" value="<?php echo $result['warehouse']?>">
+                        </div>                    
+                        <input type="hidden" name="product_id" value="<?php echo $result['id']?>">
                         <button type = "submit" class="btn btn-primary">Submit</button>
-
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
-
-
-
-
 
 <?php
 include'../layout/footer.php';

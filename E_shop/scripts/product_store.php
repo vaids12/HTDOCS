@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if(!isset($_SESSION['nickname'])){
-    header("Location: login.php");
+    header("Location: ../");
 }
 
 require_once("../db_connection.php");
@@ -14,13 +14,15 @@ if($_POST){
         $brand=$_POST['brand'];
         $warehouse=$_POST['warehouse'];
 
+        // create a new product into database:
+
         $sql = "INSERT INTO products ( category,  model, brand, warehouse ) 
-        VALUES ('$category', '$model', '$brand', '$warehouse')";
+        VLUES ('$category', '$model', '$brand', '$warehouse')";
         $query= $conn->prepare($sql);
-       $result= $query->execute();
-       if($result){
-           header("Location: ../views/main.php");
-       }
+        $result= $query->execute();
+        if($result){
+            header("Location: ../views/main.php");
+        }
 
 
     }catch(PDOException $e){
