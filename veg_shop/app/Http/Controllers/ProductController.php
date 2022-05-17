@@ -14,7 +14,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products= Product::with('orders')->get();
+
+        return view('product.index' , compact('products'));
     }
 
     /**
@@ -42,7 +44,7 @@ class ProductController extends Controller
 
         Product::create($request->all());
 
-        return redirect()->route('product.create')->with('success', 'Product created successfully');
+        return redirect()->route('product.index')->with('success', 'Product created successfully');
 
        // return redirect(->back();
 

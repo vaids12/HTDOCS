@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\Order;
 
 class OrderController extends Controller
 {
@@ -23,7 +25,9 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+       $products = Product::all();
+
+       return view('order.create', compact('products'));
     }
 
     /**
@@ -34,7 +38,17 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $order_amount=0;
+        // dd($request);
+
+        foreach($request->product as $product){
+           var_dump($product);
+        }
+
+        $order = new Order;
+        $order ->user_id = auth()-> id();// arba Auth::id()
+      
+
     }
 
     /**

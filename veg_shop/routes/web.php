@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\OrderController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +22,21 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::controller(ProductController::class)->group(function(){
-    Route::get('/product/create', 'create')->name('product.create');
-    Route::post('/product', 'store')->name('product.store');
 
+
+
+Route::group(['middleware'=>['auth']], function(){
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    Route::controller(ProductController::class)->group(function(){
+        Route::get('/product/create', 'create')->name('product.create');
+        Route::post('/product', 'store')->name('product.store');
+        Route::get('/product' , 'index')->name('product.index');
+    });
+
+    Route::controller(OrderController::class)->group(function(){
+        Route::get('/order/create', 'create')->name('order.create');
+        Route::post('/order', 'store')->name('order.store');
+    });
 });
