@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Order;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderMail;
 
 class OrderController extends Controller
 {
@@ -15,7 +17,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::with('products')->where('user_id', auth()->id())->get();
+
+        return view('order.index', compact('orders'));
     }
 
     /**
@@ -39,16 +43,33 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $order_amount=0;
+        $order_products = [];
         // dd($request);
 
         foreach($request->product as $product){
-           var_dump($product);
+        
+           array_push($order_products, intval($product));
+           $price = Product::where('id', intval($product))->value('price');
+           $order_amount+= $price;
         }
+        // var_dump($order_amount);
+        // var_dump ($order_products);
 
         $order = new Order;
         $order ->user_id = auth()-> id();// arba Auth::id()
-      
+        $order->order_amount = $order_amount;
+        $order->save();
 
+        $order->products()->sync($order_products);
+
+        $details =[
+            'order_id'=> $order->id,
+            'order_amount' => $order_amount,
+        ];
+
+        Mail::to(auth()->user()->email)->send( new OrderMail($details));
+
+        return redirect()-> route('order.index')->with('success', 'Order created');
     }
 
     /**

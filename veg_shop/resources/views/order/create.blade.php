@@ -13,9 +13,9 @@
                         @csrf  
 
                             <div class="row mb-3">
-                                <select name="product[]" id="product" multiple>
+                                <select class="form-select" name="product[]" id="product" multiple>
                                     @foreach($products as $product)
-                                     <option value="{{ $product->id }}">{{ $product->name, $product->price }}</option>                                  
+                                     <option value="{{ $product->id }}">{{ $product->name }},{{ $product->price }}</option>                                  
                                     @endforeach
                                 </select> 
 
