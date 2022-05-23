@@ -15,9 +15,13 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $orders = Order::with('products')->where('user_id', auth()->id())->get();
+
+        if($request->by_order == 'all_orders'){
+            $orders = Order::with('products')->get();
+        }
 
         return view('order.index', compact('orders'));
     }

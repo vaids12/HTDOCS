@@ -16,6 +16,11 @@
                        <p>{{ $message }}</p>
                    </div>
                    @endif
+                   <form action="{{ route('product.index') }}" method="GET">
+                       <label for="by_order"> Show Products without Orders</label>
+                        <input  name="by_order" type="checkbox" value="no_orders">
+                        <input type="submit" value="Filter">
+                   </form>
 
                    <table class = "table table-bordered">
                        <thead>
@@ -32,7 +37,14 @@
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->price }}</td>
                                 <td>{{ $product->orders->count() }}</td>
-                                <td></td>
+                                <td>
+                                    <a class= "btn btn-warning" href="{{ route('product.edit', $product->id) }}">Edit</a>
+                                    <form  class ="d-inline-block"    action="{{ route('product.delete', $product->id) }}" method ="POST">
+                                        @csrf 
+                                        @method('DELETE')
+                                        <button type ="submit" class ="btn btn-danger">Delete</button>
+                                    </form>
+                                </td>
                             </tr>
                             @endforeach
                        </tbody>

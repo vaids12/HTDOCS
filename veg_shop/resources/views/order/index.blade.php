@@ -8,13 +8,23 @@
                 <div class="card">
                     <div class="card-header">{{ __('My Orders') }}
                         <a class="btn btn-primary" href="{{ route('order.create') }}">Create new order</a>
-                    </div>                           
+                    </div>    
+
                     <div class="card-body">
                         @if($message=Session::get('success'))
                         <div class= "alert alert-success">
                         <p>{{ $message }}</p>
                         </div>
                         @endif
+                     
+                        @if (auth()->user()->role_id==1)
+                            <form action="{{ route('order.index') }}" method="GET">
+                            <label for="by_order"> Show All Orders</label>
+                            <input  name="by_order" type="checkbox" value="all_orders">
+                            <input type="submit" value="Filter">
+                            </form>
+                        @endif
+                       
                             
                         <table class = "table table-bordered">
                             <thead>

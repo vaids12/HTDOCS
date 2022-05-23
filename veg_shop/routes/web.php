@@ -1,8 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
+
 
 
 /*
@@ -38,6 +40,9 @@ Route::group(['middleware'=>['auth']], function(){
             Route::get('/product/create', 'create')->name('product.create');
             Route::post('/product', 'store')->name('product.store');
             Route::get('/product' , 'index')->name('product.index');
+            Route::get('/product/{product}/edit', 'edit')->name('product.edit');
+            Route::put('/product/{product}/update', 'update')->name('product.update');
+            Route::delete('/product/{product}/delete', 'destroy')->name('product.delete');
         });
     });
 

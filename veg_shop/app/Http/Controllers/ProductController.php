@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class ProductController extends Controller
 {
@@ -12,10 +14,12 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $products= Product::with('orders')->get();
-
+        if($request->by_order == 'no_orders'){
+            $products = Product::with('orders')->whereDoesntHave('orders')->get();
+        }
         return view('product.index' , compact('products'));
     }
 
@@ -70,7 +74,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+       return view ('product.edit', compact('product'));
     }
 
     /**
@@ -82,7 +86,19 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $validatedData=$request->validate([
+            'name'=> [
+                'required',
+                'max:100', 
+                Rule::unique('products')->ignore($product->id)
+            ],
+            'price'=>'required|numeric|regex:/^\d+(\.\d{1,2})?$/|gt:0',
+        ]);
+
+       $product -> update($validatedData);
+
+       return redirect()->route('product.index')->with('success', 'Product updated successfully');
+        
     }
 
     /**
@@ -93,6 +109,13 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        if($product->orders()->count()===0){
+            $product ->delete();
+            return redirect()->route('product.index')->with('success', 'Product deleted');
+        }else{
+            return redirect()->route('product.index')->with('success', 'Delete failed. Product has orders');
+        }
+
+        
     }
 }
