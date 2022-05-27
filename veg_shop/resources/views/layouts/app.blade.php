@@ -37,10 +37,14 @@
                         @if (auth()->user()->role_id==1)
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('product.index') }}">{{ __('Products') }}</a>
-                        </li>
+                        </li> 
+                                  
                         @endif
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('order.index') }}">{{ __('My Orders') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('image.index') }}">{{ __('Image Upload') }}</a>
                         </li>
                         @endauth
                     </ul>

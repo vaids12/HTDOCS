@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\imageUploadController;
 
 
 
@@ -25,9 +26,6 @@ Route::get('/', function () {
 Auth::routes();
 
 
-
-
-
 Route::group(['middleware'=>['auth']], function(){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -43,6 +41,7 @@ Route::group(['middleware'=>['auth']], function(){
             Route::get('/product/{product}/edit', 'edit')->name('product.edit');
             Route::put('/product/{product}/update', 'update')->name('product.update');
             Route::delete('/product/{product}/delete', 'destroy')->name('product.delete');
+            
         });
     });
 
@@ -52,5 +51,14 @@ Route::group(['middleware'=>['auth']], function(){
         Route::get('/order/create', 'create')->name('order.create');
         Route::post('/order', 'store')->name('order.store');
         Route::get('/order' , 'index')->name('order.index');
+        Route::get('/order/{order}/edit', 'edit')->name('order.edit');
+        Route::put('/order/{order}/update', 'update')->name('order.update');
+        Route::delete('/order/{order}/delete', 'destroy')->name('order.delete');
+      
+    });
+
+    Route::controller(imageUploadController::class)->group(function(){
+        Route::get('/image', 'index')->name('image.index');
+        Route::post('/image/upload', 'upload')->name('image.upload');
     });
 });

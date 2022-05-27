@@ -19,10 +19,11 @@ class OrderController extends Controller
     {
         $orders = Order::with('products')->where('user_id', auth()->id())->get();
 
-        if($request->by_order == 'all_orders'){
+        if(auth()->user()->role_id === 1){
+            if ($request->orders == 'all_orders'){
             $orders = Order::with('products')->get();
-        }
-
+        }}
+    
         return view('order.index', compact('orders'));
     }
 
@@ -33,8 +34,8 @@ class OrderController extends Controller
      */
     public function create()
     {
-       $products = Product::all();
-
+       $products = Product::all();     
+         
        return view('order.create', compact('products'));
     }
 
@@ -82,9 +83,9 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+    
     }
 
     /**
@@ -93,9 +94,13 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Order $order)
     {
-        //
+       $selected_products = $order->products()->pluck('product_id')->toArray();
+       $products = Product::all(); 
+
+       return view('order.edit', compact( 'order', 'selected_products', 'products'));
+
     }
 
     /**
@@ -105,9 +110,25 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Order $order)
     {
-        //
+        $order_amount=0;
+        $order_products = [];
+
+        foreach($request->product as $product){
+        
+           array_push($order_products, intval($product));
+           $price = Product::where('id', intval($product))->value('price');
+           $order_amount+= $price;
+        }
+
+        $order->order_amount = $order_amount;
+        $order->update();
+
+        $order->products()->sync($order_products);
+
+        return redirect()-> route('order.index')->with('success', 'Order Updated');
+
     }
 
     /**
@@ -116,8 +137,11 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Order $order)
     {
-        //
+        $order->products()->sync([]);
+        $order->delete();
+
+        return redirect()-> route('order.index')->with('success', 'Order Deleted');
     }
 }
